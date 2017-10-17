@@ -23,9 +23,7 @@
         <!-- Connection Info -->
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
 
-        <property name="jdbcUrl" value="jdbc:mysql://59.110.174.97/ycare?useUnicode=true&amp;characterEncoding=utf-8"/>
-        <property name="username" value="zhao"/>
-        <property name="password" value="root1234"/>
+       
 
 
         <!-- 检查数据库连接池中空闲连接的间隔时间  -->
