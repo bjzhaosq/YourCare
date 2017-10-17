@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="zh">
+<#include "../include/resource.html">
+    <body>
+    <div class="htmleaf-container">
+        <#include "../include/daohang.html">
+
+            <form action="/my/myRoom.html" method="post" id="form">
+                <input type="hidden" id="currentPage" name="currentPage" value="<#if page??>${page.currentPage!''}</#if>">
+                <input type="hidden" id="pernum" name="pernum" value="<#if page??>${page.pernum!''}</#if>">
+                <input type="hidden" id="pages" name="pages" value="<#if page??>${page.pages!''}</#if>">
+                <input type="hidden" id="total" name="total" value="<#if page??>${page.total!''}</#if>">
+                <input type="hidden" id="fenlei" name="fenlei" value="<#if fenlei??>${fenlei!''}</#if>">
+                <input type="hidden" id="platform" name="platform" value="<#if platform??>${platform!''}</#if>">
+
+
+
+            <div class="demo" style="padding: 2em 0;">
+                <div class="container" >
+                    <div class="row">
+                        <div class="col-lg-12 col-md-12 col-xs-12">
+                            <div class="text-center">
+                                <div class="row form-group">
+                                    <div class="col-xs-2">
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <select onchange="fun_platform()"  class="form-control" id="platform1" name="platform1">
+                                            <option value="0">选择平台</option>
+                                            <option value="1">斗鱼</option>
+                                            <option value="2">虎牙</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <input class="form-control" placeholder="主播名字"  id="zhuboName" name="zhuboName" value="<#if zhuboName??>${zhuboName!''}</#if>">
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <input class="form-control" placeholder="房间号" id="roomNum" name="roomNum" value="<#if roomNum??>${roomNum!''}</#if>">
+                                    </div>
+                                    <div class="col-xs-2">
+                                        <select onchange="fun_fenlei()" class="form-control" id="fenlei1" name="fenlei1">
+                                            <option value="0">选择分类</option>
+                                            <#if (sites?size>0)>
+                                                <#list sites as item>
+                                                    <option value="${item.siteId!''}">${item.name!''}</option>
+                                                </#list>
+                                            </#if>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                <div class="row" style="padding: 3em 0;">
+                    <div class="col-lg-12">
+                        <div class="text-center">
+                            <input type="submit" class="btn btn-info btn-submit" value="查&nbsp;&nbsp;询" style="margin-right: 20px"/>
+                            <input type="reset" class="btn btn-info btn-submit" onclick="fun_reset()" value="重&nbsp;&nbsp;置" style="margin-left: 20px"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            </form>
+
+
+            <table class="table table-hover" style="width:80%;text-align: center;" align="center">
+                <caption style="text-align: center;padding: 3em 0;"><p style="color: #f7f9fc"><#if (qrs?size>0)>关注主播信息<#else>没有查到任何信息</#if></p></caption>
+                <#if (qrs?size>0)>
+                <thead>
+                <tr>
+                    <th style="text-align: center">主播</th>
+                    <th style="text-align: center">平台</th>
+                    <th style="text-align: center">类型</th>
+                    <th style="text-align: center">操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <#list qrs as item>
+                        <tr>
+                            <td style="border-top: 0px">${item.name!''}</td>
+                            <td style="border-top: 0px">${item.platform!''}</td>
+                            <td style="border-top: 0px">${item.fenlei!''}</td>
+                            <td style="border-top: 0px"><button type="button" class="btn btn-danger btn-sm" onclick="fun_click(${item.id},'${item.name}')" data-toggle="modal" data-target="">删除</button></td>
+                    </#list>
+
+                </tbody>
+                </#if>
+            </table>
+            <div class="related" >
+            <ul class="pagination pagination-sm" id="page">
+                <!--<li><a href="#">&laquo;</a></li>-->
+                <!--<li class="active"><a href="#">1</a></li>-->
+                <!--<li><a href="#">2</a></li>-->
+                <!--<li><a href="#">3</a></li>-->
+                <!--<li><a href="#">4</a></li>-->
+                <!--<li><a href="#">5</a></li>-->
+                <!--<li><a href="#">&raquo;</a></li>-->
+            </ul>
+
+            </div>
+
+
+            <!-- 模态框（Modal） -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"  aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <!--<button type="button" class="close" data-dismiss="modal" aria-hidden="true">-->
+                                <!--&times;-->
+                            <!--</button>-->
+                            <h4 class="modal-title font" id="myModalLabel" style="text-align: center;color: black;padding: 10px">
+                                <span id="delete">确定要删除吗？</span>
+                            </h4>
+                        </div>
+
+                        <div class="modal-footer" style="border-top: 0px">
+                            <button type="button" class="btn btn-default btn-sm" data-dismiss="modal">取消
+                            </button>
+                            <button type="button" class="btn btn-danger btn-sm" onclick="fun_delete()">
+                                确定
+                            </button>
+                        </div>
+                    </div><!-- /.modal-content -->
+                </div><!-- /.modal -->
+            </div>
+
+            <input type="hidden" id="deleteId"/>
+    </body>
+
+    <script type="text/javascript">
+
+        function fun_click(id,name){
+            $('#delete').html("确定要删除 \""+name+"\" 吗？");
+            $('#deleteId').val(id);
+            $('#myModal').modal({
+                keyboard: false
+            })
+        }
+
+        function fun_delete() {
+            $('#myModal').modal('hide');
+//            location.reload();
+            var roomId = $('#deleteId').val();
+            if(roomId == ''){
+                alert("错误");
+                return false;
+            }
+            $.ajax({
+                type : 'POST',
+                url : "/zhibo/deleteRoom.html",
+                dataType : 'json',
+                data: {"roomId":roomId},
+                cache : false,
+                error : function(XMLHttpRequest, textStatus, errorThrown){
+                    alert("对不起出错了");
+                },
+                success : function(date) {
+                    var code = date.code;
+                    var msg = date.msg;
+                    if(code == 1){s
+                        alert(msg);
+                    }else{
+                        alert("删除成功");;
+                        location.reload();
+                    }
+                }
+            });
+        }
+
+        function fun_reset(){
+            $('#fenlei').val("");
+            $('#platform').val("");
+            $('#currentPage').val("");
+            $('#pernum').val("");
+        }
+
+        function fun_fenlei(){
+           var fenlei = $('#fenlei1').val();
+           if(fenlei == 0){
+               $('#fenlei').val("");
+           }else{
+               $('#fenlei').val(fenlei);
+           }
+        }
+
+        function fun_platform(){
+            var platform = $('#platform1').val();
+            if(platform == 0){
+                $('#platform').val("");
+            }else if(platform == 1){
+                $('#platform').val("斗鱼");
+            }else if(platform == 2){
+                $('#platform').val("虎牙");
+            }
+        }
+
+        function fun_chaxun(currentPage){
+            var a = $('#currentPage').val();
+            if(a != currentPage){
+                $('#currentPage').val(currentPage);
+                $('#form').submit();
+            }
+
+        }
+
+        $(function(){
+            var i = 1;
+            var pages = $('#pages').val();
+            var currentPage = $('#currentPage').val();
+            $("#page").html("");
+            if(pages>0){
+                $("#page").append("<li><a href=\"javascript:void()\">&laquo;</a></li>");
+                for(i;i<=pages;i++){
+                    if(i == currentPage){
+                        $("#page").append("<li class=\"active\"><a href=\"javascript:void()#\" onclick='fun_chaxun("+i+")'>"+i+"</a></li>");
+                    }else{
+                        $("#page").append("<li><a href=\"javascript:void()\" onclick='fun_chaxun("+i+")'>"+i+"</a></li>");
+                    }
+
+                }
+                $("#page").append("<li><a href=\"javascript:void()\">&raquo;</a></li>");
+            }
+
+            var fenlei = $('#fenlei').val();
+            var platform = $('#platform').val();
+            if(fenlei != ''){
+                $('#fenlei1').val(fenlei);
+            }
+
+            if(platform != ''){
+                if(platform == "斗鱼"){
+                    $('#platform1').val(1);
+                }else if(platform == "虎牙"){
+                    $('#platform1').val(2);
+                }
+            }
+
+        });
+
+    </script>
+</html>

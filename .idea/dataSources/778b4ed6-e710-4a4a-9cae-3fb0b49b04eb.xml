@@ -1,0 +1,1859 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="ycare">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="lawer">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="3" parent="1" name="information_schema"/>
+    <schema id="4" parent="1" name="mysql"/>
+    <schema id="5" parent="1" name="performance_schema"/>
+    <schema id="6" parent="1" name="lirui"/>
+    <schema id="7" parent="1" name="youjutou"/>
+    <table id="8" parent="2" name="article"/>
+    <table id="9" parent="2" name="customer"/>
+    <table id="10" parent="2" name="exception_log"/>
+    <table id="11" parent="2" name="law_accessory"/>
+    <table id="12" parent="2" name="law_case"/>
+    <table id="13" parent="2" name="law_comment"/>
+    <table id="14" parent="2" name="law_process"/>
+    <table id="15" parent="2" name="law_process_context"/>
+    <table id="16" parent="2" name="law_process_time"/>
+    <table id="17" parent="2" name="law_process_type"/>
+    <table id="18" parent="2" name="law_type"/>
+    <table id="19" parent="2" name="law_type_list"/>
+    <table id="20" parent="2" name="lawer_case"/>
+    <table id="21" parent="2" name="lawer_help_case"/>
+    <table id="22" parent="2" name="linkage"/>
+    <table id="23" parent="2" name="linkage_type"/>
+    <table id="24" parent="2" name="power"/>
+    <table id="25" parent="2" name="power_list"/>
+    <table id="26" parent="2" name="process_type"/>
+    <table id="27" parent="2" name="purview"/>
+    <table id="28" parent="2" name="room_list"/>
+    <table id="29" parent="2" name="rule"/>
+    <table id="30" parent="2" name="scroll_pic"/>
+    <table id="31" parent="2" name="site"/>
+    <table id="32" parent="2" name="system"/>
+    <table id="33" parent="2" name="system_log"/>
+    <table id="34" parent="2" name="system_operation"/>
+    <table id="35" parent="2" name="user"/>
+    <table id="36" parent="2" name="user_type"/>
+    <table id="37" parent="2" name="user_typepurview"/>
+    <table id="38" parent="2" name="video"/>
+    <table id="39" parent="2" name="wechat_phone"/>
+    <table id="40" parent="2" name="wechat_todo_type"/>
+    <table id="41" parent="2" name="wechat_user"/>
+    <table id="42" parent="2" name="wechat_userinfo"/>
+    <column id="43" parent="8" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="44" parent="8" name="site_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="45" parent="8" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="46" parent="8" name="ename">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="47" parent="8" name="littitle">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="48" parent="8" name="status">
+      <Position>6</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="49" parent="8" name="litpic">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="50" parent="8" name="flag">
+      <Position>8</Position>
+      <DataType>varchar(50)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="51" parent="8" name="source">
+      <Position>9</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="52" parent="8" name="publish">
+      <Position>10</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="53" parent="8" name="is_jump">
+      <Position>11</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="54" parent="8" name="author">
+      <Position>12</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="55" parent="8" name="jumpurl">
+      <Position>13</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="56" parent="8" name="summary">
+      <Position>14</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="57" parent="8" name="province">
+      <Position>15</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="58" parent="8" name="city">
+      <Position>16</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="59" parent="8" name="area">
+      <Position>17</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="60" parent="8" name="content">
+      <Position>18</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="61" parent="8" name="sort">
+      <Position>19</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="62" parent="8" name="hits">
+      <Position>20</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="63" parent="8" name="comment">
+      <Position>21</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="64" parent="8" name="user_id">
+      <Position>22</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="65" parent="8" name="addtime">
+      <Position>23</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="66" parent="8" name="addip">
+      <Position>24</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="67" parent="8" name="imageurl">
+      <Position>25</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <index id="68" parent="8" name="FK_Reference_27">
+      <ColNames>site_id</ColNames>
+    </index>
+    <key id="69" parent="8" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="70" parent="8" name="FK_Reference_27">
+      <ColNames>site_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>site</RefTableName>
+      <RefColNames>site_id</RefColNames>
+    </foreign-key>
+    <column id="71" parent="9" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="72" parent="9" name="username">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="73" parent="9" name="type">
+      <Position>3</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="74" parent="9" name="phone">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="75" parent="9" name="url">
+      <Position>5</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="76" parent="9" name="address">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="77" parent="9" name="addtime">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="78" parent="9" name="status">
+      <Position>8</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="79" parent="9" name="remark">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="80" parent="9" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <key id="81" parent="9" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="82" parent="10" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="83" parent="10" name="add_time">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="84" parent="10" name="class_name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="85" parent="10" name="ip">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="86" parent="10" name="message">
+      <Position>5</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="87" parent="10" name="method_name">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="88" parent="10" name="type">
+      <Position>7</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <key id="89" parent="10" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="90" parent="11" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="91" parent="11" name="law_case_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="92" parent="11" name="name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="93" parent="11" name="url">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="94" parent="11" name="addtime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="95" parent="11" name="status">
+      <Position>6</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="96" parent="11" name="remark">
+      <Position>7</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <index id="97" parent="11" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="98" parent="11" name="law_case_id">
+      <ColNames>law_case_id</ColNames>
+    </index>
+    <key id="99" parent="11" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="100" parent="11" name="law_accessory_ibfk_1">
+      <ColNames>law_case_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>law_case</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="101" parent="12" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="102" parent="12" name="case_number">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="103" parent="12" name="case_name">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="104" parent="12" name="law_type_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="105" parent="12" name="customer_id">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="106" parent="12" name="addtime">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="107" parent="12" name="status">
+      <Position>7</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="108" parent="12" name="content">
+      <Position>8</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="109" parent="12" name="remark">
+      <Position>9</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="110" parent="12" name="context_zs">
+      <Position>10</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <index id="111" parent="12" name="customer_id">
+      <ColNames>customer_id</ColNames>
+    </index>
+    <index id="112" parent="12" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="113" parent="12" name="law_type_id">
+      <ColNames>law_type_id</ColNames>
+    </index>
+    <key id="114" parent="12" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="115" parent="12" name="law_case_ibfk_1">
+      <ColNames>law_type_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>law_type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="116" parent="12" name="law_case_ibfk_2">
+      <ColNames>customer_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>customer</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="117" parent="13" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="118" parent="13" name="user_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="119" parent="13" name="pid">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="120" parent="13" name="law_case_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="121" parent="13" name="status">
+      <Position>5</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="122" parent="13" name="remark">
+      <Position>6</Position>
+      <DataType>text|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="123" parent="13" name="addtime">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="124" parent="13" name="updatetime">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="125" parent="13" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="126" parent="13" name="law_case_id">
+      <ColNames>law_case_id</ColNames>
+    </index>
+    <index id="127" parent="13" name="user_id">
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="128" parent="13" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="129" parent="13" name="law_comment_ibfk_1">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="130" parent="13" name="law_comment_ibfk_2">
+      <ColNames>law_case_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>law_case</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="131" parent="14" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="132" parent="14" name="name">
+      <Position>2</Position>
+      <DataType>varchar(500)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="133" parent="14" name="is_message">
+      <Position>3</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="134" parent="14" name="law_case_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="135" parent="14" name="status">
+      <Position>5</Position>
+      <Comment>0 未完成&#xd;
+1 完成&#xd;
+2 进行中&#xd;
+3 失效</Comment>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="136" parent="14" name="deadline">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="137" parent="14" name="process_type">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="138" parent="14" name="user_id">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="139" parent="14" name="context">
+      <Position>9</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <column id="140" parent="14" name="addtime">
+      <Position>10</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="141" parent="14" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="142" parent="14" name="law_case_id">
+      <ColNames>law_case_id</ColNames>
+    </index>
+    <index id="143" parent="14" name="process_type">
+      <ColNames>process_type</ColNames>
+    </index>
+    <index id="144" parent="14" name="user_id">
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="145" parent="14" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="146" parent="14" name="law_process_ibfk_1">
+      <ColNames>law_case_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>law_case</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="147" parent="14" name="law_process_ibfk_3">
+      <ColNames>process_type</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>process_type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="148" parent="14" name="law_process_ibfk_2">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="149" parent="15" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="150" parent="15" name="law_process_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="151" parent="15" name="context">
+      <Position>3</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <column id="152" parent="15" name="status">
+      <Position>4</Position>
+      <Comment>0 无效&#xd;
+1 有效</Comment>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="153" parent="15" name="task_time">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="154" parent="15" name="start_time">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="155" parent="15" name="end_time">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="156" parent="15" name="addtime">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="157" parent="15" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="158" parent="15" name="law_process_id">
+      <ColNames>law_process_id</ColNames>
+    </index>
+    <key id="159" parent="15" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="160" parent="15" name="law_process_context_ibfk_1">
+      <ColNames>law_process_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>law_process</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="161" parent="16" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="162" parent="16" name="law_process_type_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="163" parent="16" name="law_process_context_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="164" parent="16" name="start_time">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="165" parent="16" name="end_time">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="166" parent="16" name="status">
+      <Position>6</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="167" parent="16" name="addtime">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="168" parent="16" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="169" parent="16" name="law_process_context_id">
+      <ColNames>law_process_context_id</ColNames>
+    </index>
+    <index id="170" parent="16" name="law_process_type_id">
+      <ColNames>law_process_type_id</ColNames>
+    </index>
+    <key id="171" parent="16" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="172" parent="16" name="law_process_type_id_ibfk_1">
+      <ColNames>law_process_type_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>law_process_type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="173" parent="16" name="law_process_context_id_ibfk_1">
+      <ColNames>law_process_context_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>law_process_context</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="174" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="175" parent="17" name="process_type_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="176" parent="17" name="name">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="177" parent="17" name="order">
+      <Position>4</Position>
+      <DataType>int(10)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="178" parent="17" name="status">
+      <Position>5</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="179" parent="17" name="addtime">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="180" parent="17" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="181" parent="17" name="process_type_id">
+      <ColNames>process_type_id</ColNames>
+    </index>
+    <key id="182" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="183" parent="17" name="process_type_id_ibfk_1">
+      <ColNames>process_type_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>process_type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="184" parent="18" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="185" parent="18" name="status_one">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="186" parent="18" name="status_two">
+      <Position>3</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="187" parent="18" name="addtime">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="188" parent="18" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="189" parent="19" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="190" parent="19" name="name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="191" parent="19" name="pid">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="192" parent="19" name="status">
+      <Position>4</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="193" parent="19" name="addtime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="194" parent="19" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="195" parent="20" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="196" parent="20" name="user_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="197" parent="20" name="law_case_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="198" parent="20" name="case_view">
+      <Position>4</Position>
+      <DataType>varchar(500)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="199" parent="20" name="status">
+      <Position>5</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="200" parent="20" name="addtime">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="201" parent="20" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="202" parent="20" name="law_case_id">
+      <ColNames>law_case_id</ColNames>
+    </index>
+    <index id="203" parent="20" name="user_id">
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="204" parent="20" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="205" parent="20" name="lawer_case_ibfk_1">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="206" parent="20" name="lawer_case_ibfk_2">
+      <ColNames>law_case_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>law_case</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="207" parent="21" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="208" parent="21" name="user_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="209" parent="21" name="lawr_case_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="210" parent="21" name="status">
+      <Position>4</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="211" parent="21" name="addtime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="212" parent="21" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="213" parent="21" name="lawr_case_id">
+      <ColNames>lawr_case_id</ColNames>
+    </index>
+    <index id="214" parent="21" name="user_id">
+      <ColNames>user_id</ColNames>
+    </index>
+    <key id="215" parent="21" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="216" parent="21" name="lawer_help_case_ibfk_3">
+      <ColNames>user_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="217" parent="21" name="lawer_help_case_ibfk_4">
+      <ColNames>lawr_case_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>lawer_case</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="218" parent="22" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="219" parent="22" name="status">
+      <Position>2</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="220" parent="22" name="sort">
+      <Position>3</Position>
+      <DataType>smallint(6)|0</DataType>
+    </column>
+    <column id="221" parent="22" name="type_id">
+      <Position>4</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="222" parent="22" name="pid">
+      <Position>5</Position>
+      <DataType>smallint(30)|0</DataType>
+    </column>
+    <column id="223" parent="22" name="name">
+      <Position>6</Position>
+      <DataType>varchar(256)|0</DataType>
+    </column>
+    <column id="224" parent="22" name="value">
+      <Position>7</Position>
+      <DataType>varchar(256)|0</DataType>
+    </column>
+    <column id="225" parent="22" name="addtime">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="226" parent="22" name="addip">
+      <Position>9</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <index id="227" parent="22" name="FK_Reference_22">
+      <ColNames>type_id</ColNames>
+    </index>
+    <key id="228" parent="22" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="229" parent="22" name="FK_Reference_22">
+      <ColNames>type_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>linkage_type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="230" parent="23" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="231" parent="23" name="order">
+      <Position>2</Position>
+      <DataType>smallint(6)|0</DataType>
+    </column>
+    <column id="232" parent="23" name="name">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="233" parent="23" name="nid">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="234" parent="23" name="addtime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="235" parent="23" name="addip">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <key id="236" parent="23" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="237" parent="24" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="238" parent="24" name="user_type_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="239" parent="24" name="power_list_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="240" parent="24" name="status">
+      <Position>4</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="241" parent="24" name="addtime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="242" parent="24" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="243" parent="24" name="power_list_id">
+      <ColNames>power_list_id</ColNames>
+    </index>
+    <index id="244" parent="24" name="user_type_id">
+      <ColNames>user_type_id</ColNames>
+    </index>
+    <key id="245" parent="24" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="246" parent="24" name="power_ibfk_1">
+      <ColNames>user_type_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>user_type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="247" parent="24" name="power_ibfk_2">
+      <ColNames>power_list_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>power_list</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="248" parent="25" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="249" parent="25" name="name">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="250" parent="25" name="nid">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="251" parent="25" name="addtime">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="252" parent="25" name="status">
+      <Position>5</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="253" parent="25" name="remark">
+      <Position>6</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <index id="254" parent="25" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <key id="255" parent="25" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="256" parent="26" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="257" parent="26" name="name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="258" parent="26" name="status">
+      <Position>3</Position>
+      <DataType>varchar(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="259" parent="26" name="starttime">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="260" parent="26" name="destime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="261" parent="26" name="processtime">
+      <Position>6</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="262" parent="26" name="backtime">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="263" parent="26" name="endtime">
+      <Position>8</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="264" parent="26" name="addtime">
+      <Position>9</Position>
+      <DataType>datetime|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <index id="265" parent="26" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <key id="266" parent="26" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="267" parent="27" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="268" parent="27" name="name">
+      <Position>2</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="269" parent="27" name="purview">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="270" parent="27" name="url">
+      <Position>4</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="271" parent="27" name="pid">
+      <Position>5</Position>
+      <DataType>int(5)|0</DataType>
+    </column>
+    <column id="272" parent="27" name="level">
+      <Position>6</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="273" parent="27" name="remark">
+      <Position>7</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <key id="274" parent="27" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="275" parent="28" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="276" parent="28" name="site_one">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="277" parent="28" name="site_two">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="278" parent="28" name="status">
+      <Position>4</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="279" parent="28" name="addtime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="280" parent="28" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="281" parent="28" name="site_one">
+      <ColNames>site_one</ColNames>
+    </index>
+    <index id="282" parent="28" name="site_two">
+      <ColNames>site_two</ColNames>
+    </index>
+    <key id="283" parent="28" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="284" parent="28" name="site_ibfk_5">
+      <ColNames>site_one</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>site</RefTableName>
+      <RefColNames>site_id</RefColNames>
+    </foreign-key>
+    <foreign-key id="285" parent="28" name="site_ibfk_6">
+      <ColNames>site_two</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>site</RefTableName>
+      <RefColNames>site_id</RefColNames>
+    </foreign-key>
+    <column id="286" parent="29" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="287" parent="29" name="name">
+      <Position>2</Position>
+      <DataType>varchar(256)|0</DataType>
+    </column>
+    <column id="288" parent="29" name="status">
+      <Position>3</Position>
+      <DataType>int(1) unsigned|0</DataType>
+    </column>
+    <column id="289" parent="29" name="addtime">
+      <Position>4</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="290" parent="29" name="nid">
+      <Position>5</Position>
+      <DataType>varchar(256)|0</DataType>
+    </column>
+    <column id="291" parent="29" name="remark">
+      <Position>6</Position>
+      <DataType>varchar(256)|0</DataType>
+    </column>
+    <column id="292" parent="29" name="rule_check">
+      <Position>7</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <key id="293" parent="29" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="294" parent="30" name="id">
+      <Position>1</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="295" parent="30" name="status">
+      <Position>2</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="296" parent="30" name="sort">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="297" parent="30" name="flag">
+      <Position>4</Position>
+      <DataType>varchar(256)|0</DataType>
+    </column>
+    <column id="298" parent="30" name="type_id">
+      <Position>5</Position>
+      <DataType>int(11) unsigned|0</DataType>
+      <DefaultExpression>&apos;0&apos;</DefaultExpression>
+    </column>
+    <column id="299" parent="30" name="url">
+      <Position>6</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="300" parent="30" name="name">
+      <Position>7</Position>
+      <DataType>varchar(100)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="301" parent="30" name="pic">
+      <Position>8</Position>
+      <DataType>varchar(200)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="302" parent="30" name="summary">
+      <Position>9</Position>
+      <DataType>varchar(250)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="303" parent="30" name="addtime">
+      <Position>10</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="304" parent="30" name="addip">
+      <Position>11</Position>
+      <DataType>varchar(50)|0</DataType>
+      <DefaultExpression>&apos;&apos;</DefaultExpression>
+    </column>
+    <column id="305" parent="30" name="ismoble">
+      <Position>12</Position>
+      <DataType>varchar(11)|0</DataType>
+      <DefaultExpression>&apos;1&apos;</DefaultExpression>
+    </column>
+    <key id="306" parent="30" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="307" parent="31" name="site_id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="308" parent="31" name="code">
+      <Position>2</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="309" parent="31" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="310" parent="31" name="nid">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="311" parent="31" name="pid">
+      <Position>5</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="312" parent="31" name="rank">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="313" parent="31" name="url">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="314" parent="31" name="isurl">
+      <Position>8</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="315" parent="31" name="sort">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="316" parent="31" name="status">
+      <Position>10</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="317" parent="31" name="style">
+      <Position>11</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="318" parent="31" name="litpic">
+      <Position>12</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="319" parent="31" name="content">
+      <Position>13</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="320" parent="31" name="list_name">
+      <Position>14</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="321" parent="31" name="content_name">
+      <Position>15</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="322" parent="31" name="sitedir">
+      <Position>16</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="323" parent="31" name="title">
+      <Position>17</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="324" parent="31" name="keywords">
+      <Position>18</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="325" parent="31" name="description">
+      <Position>19</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="326" parent="31" name="user_id">
+      <Position>20</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="327" parent="31" name="addtime">
+      <Position>21</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="328" parent="31" name="addip">
+      <Position>22</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="329" parent="31" name="video_id">
+      <Position>23</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="330" parent="31" name="site_id">
+      <ColNames>site_id</ColNames>
+    </index>
+    <index id="331" parent="31" name="video_id">
+      <ColNames>video_id</ColNames>
+    </index>
+    <key id="332" parent="31" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>site_id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="333" parent="31" name="video_ibfk_1">
+      <ColNames>video_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>video</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="334" parent="32" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="335" parent="32" name="name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="336" parent="32" name="nid">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="337" parent="32" name="value">
+      <Position>4</Position>
+      <DataType>varchar(1000)|0</DataType>
+    </column>
+    <column id="338" parent="32" name="type">
+      <Position>5</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="339" parent="32" name="style">
+      <Position>6</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <column id="340" parent="32" name="status">
+      <Position>7</Position>
+      <DataType>int(2)|0</DataType>
+    </column>
+    <key id="341" parent="32" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="342" parent="33" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="343" parent="33" name="add_time">
+      <Position>2</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="344" parent="33" name="ip">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="345" parent="33" name="params">
+      <Position>4</Position>
+      <DataType>varchar(512)|0</DataType>
+    </column>
+    <column id="346" parent="33" name="remark">
+      <Position>5</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="347" parent="33" name="system_operation_id">
+      <Position>6</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <column id="348" parent="33" name="user_id">
+      <Position>7</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <index id="349" parent="33" name="FK2656953416BCBAC0">
+      <ColNames>system_operation_id</ColNames>
+    </index>
+    <key id="350" parent="33" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="351" parent="33" name="system_log_ibfk_1">
+      <ColNames>system_operation_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>system_operation</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="352" parent="34" name="id">
+      <Position>1</Position>
+      <DataType>bigint(20)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="353" parent="34" name="front">
+      <Position>2</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="354" parent="34" name="level">
+      <Position>3</Position>
+      <DataType>int(1)|0</DataType>
+    </column>
+    <column id="355" parent="34" name="name">
+      <Position>4</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="356" parent="34" name="parent_id">
+      <Position>5</Position>
+      <DataType>bigint(20)|0</DataType>
+    </column>
+    <key id="357" parent="34" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="358" parent="35" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="359" parent="35" name="job_number">
+      <Position>2</Position>
+      <DataType>varchar(15)|0</DataType>
+    </column>
+    <column id="360" parent="35" name="username">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="361" parent="35" name="password">
+      <Position>4</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="362" parent="35" name="sex">
+      <Position>5</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="363" parent="35" name="nation">
+      <Position>6</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="364" parent="35" name="native_place">
+      <Position>7</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="365" parent="35" name="phone">
+      <Position>8</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="366" parent="35" name="address">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="367" parent="35" name="date_of_birth">
+      <Position>10</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="368" parent="35" name="education">
+      <Position>11</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="369" parent="35" name="political">
+      <Position>12</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="370" parent="35" name="addtime">
+      <Position>13</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="371" parent="35" name="status">
+      <Position>14</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="372" parent="35" name="remark">
+      <Position>15</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <column id="373" parent="35" name="dtalk">
+      <Position>16</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="374" parent="35" name="user_Type_id">
+      <Position>17</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="375" parent="35" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="376" parent="35" name="user_Type_id">
+      <ColNames>user_Type_id</ColNames>
+    </index>
+    <key id="377" parent="35" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="378" parent="35" name="user_ibfk_1">
+      <ColNames>user_Type_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>user_type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="379" parent="36" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="380" parent="36" name="name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="381" parent="36" name="nid">
+      <Position>3</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="382" parent="36" name="status">
+      <Position>4</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="383" parent="36" name="addtime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="384" parent="36" name="remark">
+      <Position>6</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <key id="385" parent="36" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="386" parent="37" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="387" parent="37" name="user_type_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="388" parent="37" name="purview_id">
+      <Position>3</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="389" parent="37" name="FK_Reference_24">
+      <ColNames>purview_id</ColNames>
+    </index>
+    <index id="390" parent="37" name="FK_Reference_25">
+      <ColNames>user_type_id</ColNames>
+    </index>
+    <key id="391" parent="37" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="392" parent="37" name="FK_Reference_25">
+      <ColNames>user_type_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>user_type</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <foreign-key id="393" parent="37" name="FK_Reference_24">
+      <ColNames>purview_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>purview</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="394" parent="38" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="395" parent="38" name="site_id">
+      <Position>2</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="396" parent="38" name="name">
+      <Position>3</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="397" parent="38" name="nid">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="398" parent="38" name="room_num">
+      <Position>5</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="399" parent="38" name="content">
+      <Position>6</Position>
+      <DataType>text|0</DataType>
+    </column>
+    <column id="400" parent="38" name="width">
+      <Position>7</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="401" parent="38" name="height">
+      <Position>8</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="402" parent="38" name="platform">
+      <Position>9</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="403" parent="38" name="add_time">
+      <Position>10</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="404" parent="38" name="status">
+      <Position>11</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <column id="405" parent="38" name="remark">
+      <Position>12</Position>
+      <DataType>varchar(255)|0</DataType>
+    </column>
+    <index id="406" parent="38" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="407" parent="38" name="site_id">
+      <ColNames>site_id</ColNames>
+    </index>
+    <key id="408" parent="38" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="409" parent="38" name="site_ibfk_1">
+      <ColNames>site_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>site</RefTableName>
+      <RefColNames>site_id</RefColNames>
+    </foreign-key>
+    <column id="410" parent="39" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="411" parent="39" name="name">
+      <Position>2</Position>
+      <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="412" parent="39" name="phone">
+      <Position>3</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="413" parent="39" name="telephone">
+      <Position>4</Position>
+      <DataType>varchar(100)|0</DataType>
+    </column>
+    <column id="414" parent="39" name="position">
+      <Position>5</Position>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="415" parent="39" name="status">
+      <Position>6</Position>
+      <Comment>0 无效&#xd;
+1 有效</Comment>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="416" parent="39" name="addtime">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <index id="417" parent="39" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <key id="418" parent="39" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="419" parent="40" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="420" parent="40" name="name">
+      <Position>2</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="421" parent="40" name="nid">
+      <Position>3</Position>
+      <DataType>varchar(30)|0</DataType>
+    </column>
+    <column id="422" parent="40" name="icon">
+      <Position>4</Position>
+      <DataType>varchar(40)|0</DataType>
+    </column>
+    <column id="423" parent="40" name="addtime">
+      <Position>5</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="424" parent="40" name="status">
+      <Position>6</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="425" parent="40" name="remark">
+      <Position>7</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <index id="426" parent="40" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <key id="427" parent="40" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <column id="428" parent="41" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="429" parent="41" name="3rd_session">
+      <Position>2</Position>
+      <DataType>varchar(300)|0</DataType>
+    </column>
+    <column id="430" parent="41" name="session_key">
+      <Position>3</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="431" parent="41" name="expires_in">
+      <Position>4</Position>
+      <DataType>int(200)|0</DataType>
+    </column>
+    <column id="432" parent="41" name="openid">
+      <Position>5</Position>
+      <DataType>varchar(200)|0</DataType>
+    </column>
+    <column id="433" parent="41" name="wechat_userinfo_id">
+      <Position>6</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <column id="434" parent="41" name="addtime">
+      <Position>7</Position>
+      <DataType>datetime|0</DataType>
+    </column>
+    <column id="435" parent="41" name="status">
+      <Position>8</Position>
+      <DataType>varchar(2)|0</DataType>
+    </column>
+    <column id="436" parent="41" name="remark">
+      <Position>9</Position>
+      <DataType>varchar(150)|0</DataType>
+    </column>
+    <index id="437" parent="41" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="438" parent="41" name="wechat_userinfo_id">
+      <ColNames>wechat_userinfo_id</ColNames>
+    </index>
+    <key id="439" parent="41" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="440" parent="41" name="wechat_userinfo_ibfk_1">
+      <ColNames>wechat_userinfo_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>wechat_userinfo</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+    <column id="441" parent="42" name="id">
+      <Position>1</Position>
+      <DataType>int(11)|0</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="442" parent="42" name="nickname">
+      <Position>2</Position>
+      <DataType>varchar(300)|0</DataType>
+    </column>
+    <column id="443" parent="42" name="gender">
+      <Position>3</Position>
+      <DataType>varchar(10)|0</DataType>
+    </column>
+    <column id="444" parent="42" name="language">
+      <Position>4</Position>
+      <DataType>varchar(20)|0</DataType>
+    </column>
+    <column id="445" parent="42" name="city">
+      <Position>5</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="446" parent="42" name="province">
+      <Position>6</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="447" parent="42" name="country">
+      <Position>7</Position>
+      <DataType>varchar(50)|0</DataType>
+    </column>
+    <column id="448" parent="42" name="avatarUrl">
+      <Position>8</Position>
+      <DataType>varchar(500)|0</DataType>
+    </column>
+    <column id="449" parent="42" name="wechat_user_id">
+      <Position>9</Position>
+      <DataType>int(11)|0</DataType>
+    </column>
+    <index id="450" parent="42" name="id">
+      <ColNames>id</ColNames>
+    </index>
+    <index id="451" parent="42" name="wechat_user_id">
+      <ColNames>wechat_user_id</ColNames>
+    </index>
+    <key id="452" parent="42" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+    <foreign-key id="453" parent="42" name="wechat_user_ibfk_1">
+      <ColNames>wechat_user_id</ColNames>
+      <RefSchemaName>lawer</RefSchemaName>
+      <RefTableName>wechat_user</RefTableName>
+      <RefColNames>id</RefColNames>
+    </foreign-key>
+  </database-model>
+</dataSource>

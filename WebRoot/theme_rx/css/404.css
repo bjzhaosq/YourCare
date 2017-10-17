@@ -1,0 +1,68 @@
+@charset "UTF-8";
+
+*{
+    margin:0;
+    padding:0;
+}
+
+.content-box{
+    width:1012px;
+    height:555px;
+    margin:0 auto;
+}
+
+.right-box{
+    float:left;
+    margin-top:135px;
+    width:223px;
+    height:326px;
+    background:url('../images/rocket-icon.png') no-repeat;
+}
+
+.left-box{
+    float:left;
+    width:30%;
+    overflow:hidden;
+    margin-left:30%;
+    margin-top:122px;
+    text-align:center;
+}
+
+.left-box i{
+    display:block;
+    margin:0 auto;
+    width:211px;
+    height:99px;
+    background:url('../images/404.png') no-repeat;
+}
+
+.left-box dl{
+    text-align:center;
+    margin-top:15px;
+    margin-bottom:58px;
+}
+
+.left-box dl dt{
+    font-size:35px;
+    font-family:'微软雅黑';
+    color:#0a467c;
+}
+
+.left-box dl dd{
+    font-size:18px;
+    font-family:'微软雅黑';
+    color:#b5b5b5;
+    margin-top:7px;
+}
+
+.left-box span{
+    font-family:'微软雅黑';
+    font-size:18px;
+    color:#afafaf;
+}
+
+.left-box span a{
+    font-family:'微软雅黑';
+    font-size:18px;
+    color:#ffba00;
+}

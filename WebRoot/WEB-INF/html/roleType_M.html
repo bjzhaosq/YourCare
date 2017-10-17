@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<#include "include/resource.html">
+<body>
+
+    <div class="main_content_box">
+        <!-- <h3 class="property_title">角色类型管理</h3> -->
+        <div class="cm_main property_m" style="display:block;">
+            <div class="cm_main_top cm_main_top3">
+                <span>角色类型管理</span>
+            </div>
+            <div class="dwidth">
+                <form action="" class="property_form" id="property_form">
+                    <table>
+                        <tr>
+                            <td>名 称</td>
+                            <td>
+	                            <input type="text" required="true" maxlength="100" name="name">
+	                            <span id="sousuo">搜索</span>
+	                            <a href="/role/newlyRole.html"><span>新增</span></a>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+                <table class="property_list" id="property_list">
+                    <tr>
+                        <td>编号</td>
+                        <td style="width:110px;">角色类型</td>
+                        <td>权限列表</td>
+                        <td>操作</td>
+                    </tr>
+                    <#if list??>
+                    <#list list as item>
+                    <tr>
+                    	<td>${item_index+1!"-"}</td>
+                        <td>${item.name!""}</td>
+                        <td>
+	                         <#list item.list as cs>
+	                         	${cs.powerListId.name!""}&nbsp
+	                         </#list>
+                        </td>
+                       <td><a href="/role/updateRolePower.html?id=${item.id}" class="small_btn">修改</a>
+                       <a href="/role/deleteRoleAndPower.html?userTypeId=${item.id}" class="small_btn">删除</a></td>
+                    </tr>
+                   </#list>
+                   <#else></#if>
+                </table>
+                <#if pages??&&pages.pages!=1>
+                         <div class="pages">
+		                    <div id="Pagination"></div>
+		                    <div class="searchPage">
+		                        <span class="page-sum">共<strong class="allPage">${pages.pages!""}</strong>页</span>
+		                        <span class="page-go">跳转<input type="text" id="goPage">页</span>
+		                        <a href="javascript:void(0);" id="go" class="page-btn">GO</a>
+		                    </div>
+		                </div>
+		        <#else></#if>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+		$("#sousuo").click(function(){
+			$("#property_form").submit();
+		}); 
+</script>
+    <script type="text/javascript">
+//分页相关
+	 //url="${webroot}/customer/customer_M.html"
+	 url=window.location.href
+$(function () {
+	    $(document).ready(function() {
+	        $("#Pagination").pagination(${pages.pages}, {
+	           	link_to: "javascript:void(0);",
+	        	prev_text: "上一页",
+	            next_text: "下一页 ",
+	            num_edge_entries: 2,
+	            num_display_entries: 6,
+	            callback:PageCallback
+	        });
+	    });
+	    function PageCallback(index, jq) {             
+	        InitTable(index);  
+	    }  
+	    function InitTable(index){
+	         $.ajax({   
+	              type: "POST",  
+	              url: url,//提交到一般处理程序请求数据   
+	              data: {"page":index},
+	              success: function(data) {
+	            	  var $data = $(data) //将整个文档转化为jquery对象
+	            	  var target_div = $data.find("#property_list"); //获取到你要显示的div
+	            	  $(".property_list").replaceWith(target_div)	//替换表格
+	              }  
+	         }); 
+		 	}
+	     $("#go").click(function(){
+			var page = $("#goPage").val();
+			if(page==""|| page==null){
+				 window.location.reload();
+			}else{
+				page = parseInt(page-1);
+				InitTable(page); 
+			}
+		});  
+});
+
+</script>
+
+    <script>
+        $(document).ready(function(){
+            $('.main_content_box').insertAfter($('.main_content_top'));
+
+            $('#a7').css("background","rgba(64,123,167,.9)");
+            var txt=$('#a7').html();
+            var bg=$('#a7 i').css('backgroundImage');
+            $('.main_content_top h3').html(txt);
+            $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+        });
+    </script>
+
+</body>
+</html>

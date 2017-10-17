@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<#include "../include/mobile_resource.html">
+<body>
+    <header class="mobile_header" style="position:fixed">
+    <a href="javascript:window.history.back()"> < </a>
+        <h3>待办事项</h3>
+    </header>
+    <input type="hidden" value="<#if lpId??>${lpId!''}</#if>" id="lpId">
+    <div class="mobile_comment_container" style="margin-top:5rem">
+        <div class="progress_list">
+            <h3>进度列表</h3>
+            <#if lawProcessTypesList??>
+	            <div class="progress_list_content">
+		            <#list lawProcessTypesList as item>
+		            	<#if item.status != '0'>
+	                    <span class="part">
+	                    	<span class="part_span" style="background-color: #b2e5f9;">${item.name!''}</span>
+	                    	<i style="display: block">${item.addtime!''}</i>
+	                    </span>
+	                    </#if>
+		            </#list>
+	            </div>
+            <#else></#if>
+        </div>
+        
+        
+          <textarea class="enter_box" id="" readonly unselectable="on" placeholder="说点什么吧..." >${lawProcessContext.context}</textarea>
+        <!-- <form action="">
+            <a href="" class="comment_save">保 存</a>
+            <a href="" class="comment_submit">提 交</a>
+        </form> -->
+    </div>
+
+    <script>
+        /* $('span.part_span').bind('click',function(){
+            if($(this).siblings('i').is(":hidden")){
+                $(this).siblings('i').css("display","block");
+                $(this).css("backgroundColor","#b2e5f9");
+                $(this).addClass("pass");
+                $('span.part_span:not("span.pass")').addClass("nopass");
+                $(this).removeClass("nopass");
+//                    $('span.pass').unbind('click');
+            }else{
+                $(this).siblings('i').css("display","none");
+                $(this).css("backgroundColor","#e7f6fc");
+                $(this).removeClass("pass");
+            }
+
+        }) */
+
+        $('span.pass').unbind('click');
+
+        $('.part:even').css('float','left');
+        $('.part:even').append('<b style=" width:15%;height:2.5rem;background:url(${webroot}/theme_rx/mobile/images/point_arrow_icon.png) no-repeat;background-size:100% 100%;position:absolute;right:-30%;top:10%;"></b>');
+        $('.part:odd').css({float:"right",marginRight:"2px"});
+        $('.part:last').children('b').remove();
+    </script>
+</body>
+</html>

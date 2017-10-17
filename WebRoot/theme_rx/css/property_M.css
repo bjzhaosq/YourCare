@@ -1,0 +1,209 @@
+.cm_main{
+    width:100%;
+    margin-top:10px;
+    background-color:#e9eef6;
+    padding-bottom:60px;
+    display:none;
+}
+
+.property_title{
+    font-size:15px;
+    color:#00639e;
+    font-weight:normal;
+}
+
+.dwidth{
+    width:1000px;
+    margin:0 auto;
+    margin-top:30px;
+}
+
+.property_form, .property_form table{
+    width:100%;
+}
+
+.property_form table td{
+    font-size:15px;
+    color:#6a6a6a;
+}
+
+.property_form table td:first-child{
+    width:50px;
+}
+
+.property_form table input{
+    width:180px;
+    height:25px;
+}
+
+.property_form table span{
+    display:inline-block;
+    width:48px;
+    height:22px;
+    border-radius:3px;
+    background-color:#a9c8d9;
+    color:#fff;
+    text-align:center;
+    margin-left:20px;
+    cursor:pointer;
+}
+
+.property_list{
+    width:100%;
+    margin-top:50px;
+    border-collapse:separate;
+    border-spacing:5px;
+}
+
+.property_list td{
+    font-size:15px;
+    height:38px;
+    padding:0 5px;
+    color:#6a6a6a;
+    text-align:center;
+    background-color:#cfe2ed
+}
+
+.property_list tr:first-child td{
+    background-color:#bdd9e9;
+}
+
+.property_list td:first-child{
+    width:100px;
+}
+
+.property_list td:nth-child(2){
+    width:90px;
+}
+
+.property_list td:last-child{
+    width:160px;
+}
+
+.cm_main_top{
+    width:100%;
+    height:45px;
+    background-color:#cfe2ed;
+    color:#6a6a6a;
+    font-size:15px;
+    line-height:45px;
+    padding-left:25px;
+    box-sizing:border-box;
+}
+
+.property_fp_form,.property_fp_form table{
+    width:100%;
+}
+
+.property_fp_form table td{
+    font-size:15px;
+    color:#6a6a6a;
+    padding:20px 0;
+    width:400px;
+}
+.property_fp_form table td:first-child{
+    text-align:right;
+    padding-right:150px;
+}
+
+.property_fp_form table td:last-child{
+    text-align:left;
+    padding-left:150px;
+}
+
+
+.property_fp_form table td input{
+    width:15px;
+    height:15px;
+}
+
+.property_fp_saveoff{
+    text-align:center;
+    margin-top:70px;
+}
+
+.property_fp_saveoff span{
+    display:inline-block;
+    width:116px;
+    height:30px;
+    background-color:#d2d2d2;
+    color:#00639e;
+    font-size:15px;
+    line-height:30px;
+    cursor:pointer;
+}
+
+.property_fp_saveoff span:hover{
+    background-color:#009bdb;
+    color:#fff;
+}
+
+.small_btn{
+    display:inline-block;
+    width:50px;
+    height:22px;
+    background-color:#a9c8d9;
+    color:#fff;
+    border-radius:3px;
+    text-align:center;
+    margin-left:15px;
+}
+
+.small_btn:hover{
+    color:#fff;
+    text-decoration:none;
+}
+
+
+.property_form .p_newly_tb td:first-child{
+    width:60px;
+    text-align:right;
+    padding-right:25px;
+}
+
+.property_form .p_newly_tb td{
+    padding:12px 0;
+}
+
+.property_form .p_newly_tb .big_btn{
+    display:inline-block;
+    width:150px;
+    height:30px;
+    background-color:#d2d2d2;
+    color:#00639e;
+    font-size:16px;
+    text-align:center;
+    line-height:30px;
+    border-radius:5px;
+    margin-left:100px;
+    cursor:pointer;
+}
+
+.property_form .p_newly_tb .big_btn:hover{
+    background-color:#009bdb;
+    color:#fff;
+}
+
+
+.check_box_group{
+    width:700px;
+    margin:0 auto;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+}
+
+.check_box_group p{
+    display:inline-block;
+    font-size:18px;
+    color:#6a6a6a;
+    width:340px;
+    height:50px;
+    padding-left:140px;
+}
+
+.check_box_group p input{
+    width:18px;
+    height:18px;
+}

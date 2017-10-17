@@ -1,0 +1,39 @@
+<#include "ie-disable.html">
+
+
+<!- -header代码 - ->
+<div class="header">
+    <div class="top">
+        <div class="wraper">
+            <a href="/" class="logo"></a>
+            <div class="hot-service">
+                <span>服务热线：${fuwutel}</span>
+               <!-- <i class="weixin"></i>
+                <a href="${weibo}" target="_blank"><i class="weibo"></i></a>-->
+            </div>
+        </div>
+    </div>
+    <div class="nav">
+        <div class="wraper">
+            <ul class="nav-list">
+                <li><a href="/">首页</a></li>
+                <#if site??&&site.hasChild()>
+                    <#list site.child as item>
+                        <#if item_index gt 0>
+                            <li>
+                                <a href="/link/runxin.html?code=${item.model.code!}&style=${item.model.style!}&pid=${item.model.pid!}">${item.model.name!}</a>
+                                <#if item??&&item.hasChild()>
+                                    <ul>
+                                        <#list item.child as subitem>
+                                            <li><a href="/link/runxin.html?code=${subitem.model.code!}&style=${subitem.model.style!}&pid=${subitem.model.pid!}">${subitem.model.name}</a></li>
+                                        </#list>
+                                    </ul>
+                                </#if>
+                            </li>
+                        </#if>
+                    </#list>
+                </#if>
+            </ul>
+        </div>
+    </div>
+</div>

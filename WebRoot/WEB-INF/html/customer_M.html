@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<#include "include/resource.html">
+<body>
+ 
+    <div class="main_content_box">
+        <div class="cm_list">
+            <a href="" style="padding-left:0;font-weight:bold;">最新客户</a>
+        </div>
+                <div class="cm_main cm_main3" style="display:block;">
+                    <div class="cm_main_top cm_main_top3">
+                        <span>基本信息</span>
+                        <b>必填信息</b>
+                    </div>
+                    <div class="dwidth">
+                        <form action="${webroot}/customer/findCustomer.html" id="form" class="curtomer_form">
+                            <table>
+                                <tr>
+                                    <td>客户名称</td>
+                                    <td> <input type="text" id="username" name="username" required="true" maxlength="30">
+                                    <span style="color:red;padding-left:5px;">●</span></td>
+                                    
+                                    <td>类型</td>
+                                    <td><select name="usertype">
+	                                        <option value="1" <#if type??><#if type=="1">selected="selected"</#if></#if>>个人</option>
+	                                        <option value="2" <#if type??><#if type=="2">selected="selected"</#if></#if>>企业</option>
+                                       </select>
+                                    </td>
+                                    
+                                    <td>
+	                                    <a id="sousuo" href="javascript:;" class="small_btn">搜索</a>
+	                                    <a href="${webroot}/customer/addCustomer.html" class="small_btn">新增</a>
+	                                </td>
+                                </tr>
+                            </table>
+                        </form>
+                
+                <#if list??>
+                <table class="cm_table_list" id = "cm_table_list">
+                            <tr>
+                                <td>编号</td>
+                                <td>客户名称</td>
+                                <td>客户类型</td>
+                                <td>电话</td>
+                                <td>地址</td>
+                                <td>操作</td>
+                            </tr>
+                            <#list list as item>
+                            <tr>
+                                <td>${item_index+1!"-"}</td>
+                                 <input type= "hidden" id = "item_id" value="${item.id}">
+                               <td>${item.username!"-"}</td>
+                                <td>
+			                     	<#if item.type == "1">
+			                     		个人
+			                     	<#elseif item.type == "2">
+			                     		企业
+			                     	</#if>
+			                     </td>
+                                <td>${item.phone!"-"}</td>
+                                <td>${item.address!"-"}</td>
+                                <td>
+	                                <a href="${webroot}/customer/reviseCustomer.html?id=${item.id}" class="small_btn">修改</a>
+	                                <a href="${webroot}/customer/delCustomer.html?id=${item.id}" class="small_btn">删除</a>
+                                </td>
+                            </tr>
+                            </#list>
+                        </table>
+                    <#else></#if>
+                    
+                <#if pages??&&pages.pages!=1>
+	                <div class="pages">
+	                   <div id="Pagination"></div>
+	                   <div class="searchPage">
+	                       <span class="page-sum">共<strong class="allPage">${pages.pages!""}</strong>页</span>
+	                       <span class="page-go">跳转<input type="text" id="goPage">页</span>
+	                       <a href="javascript:void(0);" id="go" class="page-btn">GO</a>
+	                   </div>
+	                </div>
+		         <#else></#if>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+		$("#sousuo").click(function(){
+			$("#form").submit();
+		}); 
+</script>
+<script type="text/javascript">
+	 //分页相关
+   	 url=window.location.href
+     $(function () {
+		    $(document).ready(function() {
+		        $("#Pagination").pagination(${pages.pages}, {
+		           	link_to: "javascript:void(0);",
+		        	prev_text: "上一页",
+		            next_text: "下一页 ",
+		            num_edge_entries: 2,
+		            num_display_entries: 6,
+		            callback:PageCallback
+		        });
+		    });
+		    function PageCallback(index, jq) {             
+		        InitTable(index);  
+		    }  
+		    function InitTable(index){
+		         $.ajax({   
+		              type: "POST",  
+		              url: url,//提交到一般处理程序请求数据   
+		              data: {"page":index},
+		              success: function(data) {
+		            	  var $data = $(data) //将整个文档转化为jquery对象
+		            	  var target_div = $data.find("#cm_table_list"); //获取到你要显示的div
+		            	  $(".cm_table_list").replaceWith(target_div)	//替换表格
+		              }  
+		         }); 
+   		 	}
+		     $("#go").click(function(){
+				var page = $("#goPage").val();
+				if(page==""|| page==null){
+					 window.location.reload();
+				}else{
+					page = parseInt(page-1);
+					InitTable(page); 
+				}
+			});  
+     });
+     
+</script>
+<script type="text/javascript">
+	$("#delete").click(function(){
+		var id = $("#item_id").val();
+		alert(id);
+		$.ajax({
+			  type: "GET",
+			  url: "${webroot}/customer/delCustomer.html",
+			  data:{"id":id},
+			  success: function () {
+				  window.location.reload();
+	          },
+			}); 
+	});
+
+</script>
+
+
+
+<script>
+    $('.cm_list a').click(function(e){
+        e.preventDefault();
+        $('.cm_list a:not(this)').css("fontWeight","normal");
+        $(this).css("fontWeight","bold");
+        var a_index=$(this).index();
+        if(a_index==0){
+            $('.cm_main1').show();
+            $('.cm_main2').hide();
+            $('.cm_main3').hide();
+            $('.cm_main4').hide();
+        }else if(a_index==1){
+            $('.cm_main1').hide();
+            $('.cm_main2').show();
+            $('.cm_main3').hide();
+            $('.cm_main4').hide();
+        }else if(a_index==2){
+            $('.cm_main1').hide();
+            $('.cm_main2').hide();
+            $('.cm_main3').show();
+            $('.cm_main4').hide();
+        }else{
+            $('.cm_main1').hide();
+            $('.cm_main2').hide();
+            $('.cm_main3').hide();
+            $('.cm_main4').show();
+        }
+    })
+
+    $('.function_btn span').click(function(){
+        $('.function_btn span:not(this)').css({backgroundColor:"#d2d2d2",color:"#00639e"});
+        $(this).css({backgroundColor:"#009bdb",color:"#fff"});
+    })
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('.main_content_box').insertAfter($('.main_content_top'));
+        $('#a2').css("background","rgba(64,123,167,.9)");
+        var txt=$('#a2').html();
+        var bg=$('#a2 i').css('backgroundImage');
+        $('.main_content_top h3').html(txt);
+        $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+
+    });
+    
+</script>
+</body>
+</html>

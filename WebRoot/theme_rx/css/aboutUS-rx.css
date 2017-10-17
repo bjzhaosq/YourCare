@@ -1,0 +1,320 @@
+@charset "UTF-8";
+
+*{
+    margin:0;
+    padding:0;
+}
+
+body{
+    font-family:"微软雅黑";
+}
+
+ul li{
+    list-style-type:none;
+}
+
+a{
+    text-decoration:none;
+    color:#000;
+}
+
+img{
+    border:none;
+    max-width:100% ;
+}
+
+.wraper{
+    width:945px;
+    margin:0 auto;
+}
+
+/***************** header样式 ********************/
+.header{
+    width:100%;
+}
+
+.top{
+    width:100%;
+    height:92px;
+    background:url(../images/headnav-bg.jpg);
+}
+
+.logo{
+    float:left;
+    width:238px;
+    height:56px;
+    background:url(../images/logo.png);
+    margin-top:20px;
+}
+
+.hot-service{
+    float:right;
+    width:280px;
+    height:40px;
+    line-height:92px;
+}
+
+.hot-service span{
+    font-size:14px;
+    color:#fff;
+}
+
+.hot-service i{
+    display:inline-block;
+    width:29px;
+    height:26px;
+    margin-left:10px;
+    margin-bottom:-8px;
+}
+
+.hot-service i:last-child{
+    margin-left:0px;
+}
+
+.weixin{
+    background:url(../images/weixin-icon.png);
+}
+
+.weibo{
+    background:url(../images/weibo-icon.png);
+}
+
+
+/************banner的样式**************/
+.banner{
+    width:100%;
+    position:relative;
+}
+
+.nav{
+    width:100%;
+    background-color:#0b5eab;
+    height:46px;
+    position:relative;
+    z-index:3;
+}
+
+.nav-list, .nav-list ul {
+    width:100%;
+}
+
+.nav-list li {
+    float: left;
+    position: relative;
+    width:103px;
+    height:46px;
+    text-align:center;
+    line-height:46px;
+}
+
+.nav-list>li{
+    border-right:1px solid #00417c;
+    botder-left:1px solid #00417c;
+}
+
+.nav-list>li:first-child{
+    border-left:1px solid #00417c;
+}
+
+.nav-list li a{
+    font-size:14px;
+    color:#fff;
+    font-family:"宋体";
+}
+
+.nav-list ul {
+    display: none;
+    position: absolute;
+    left:0;
+}
+
+.nav-list ul li {
+    float: none;
+    height:34px;
+    line-height:34px;
+    border-bottom: 1px solid #487cc2;
+    background-color: #0b5eab;
+    opacity:0.9;
+    filter: progid:DXImageTransform.Microsoft.Alpha(opacity=90);
+    text-align:center;
+}
+
+.nav-list li:hover ul {
+    display: block;
+}
+
+.click-color{
+    background-color:#0b8aff;
+}
+
+.aboutUs-banner{
+    width:100%;
+    height:262px;
+    background-size:100% 100%;
+}
+
+.aboutUs-content{
+    width:945px;
+    margin:0 auto;
+    overflow:hidden;
+    margin-top:22px;
+}
+
+.left-list{
+    float:left;
+    width:190px;
+}
+
+.left-list ul{
+    width:100%;
+    background-color:#3a8cd8;
+    padding:25px 0 75px 0;
+    margin-bottom:18px;
+}
+
+.left-list ul li{
+    width:85%;
+    height:37px;
+    line-height:37px;
+    position:relative;
+    border-top:1px solid #b6c7d6;
+}
+
+.left-list ul li.cur{
+    border:none;
+    background-color:#145283;
+    height:37px;
+}
+
+.left-list ul li.cur+li{
+    border:none;
+}
+
+.left-list ul li.cur a{
+    border:none;
+}
+
+.left-list ul li.cur:after{
+    content:"";
+    position:absolute;
+    top:0;
+    right:-33px;
+    width:33px;
+    height:37px;
+    background-color:#145283;
+}
+
+.left-list ul li:first-child{
+    border:none;
+}
+
+.left-list ul li:first-child a{
+    color:#fff;
+    font-size:16px;
+    border:none;
+}
+
+.left-list ul li a{
+    display:inline-block;
+    width:100%;
+    height:37px;
+    font-size:13px;
+    color:#fff;
+    text-align:right;
+    position:absolute;
+    top:0;
+    left:0;
+    border-bottom:1px solid #b6c7d6;
+}
+
+.right-content{
+    float:right;
+    width:700px;
+    overflow:hidden;
+}
+
+.business-title{
+    width:100%;
+    overflow:hidden;
+    border-bottom:1px solid #094a84;
+}
+
+.business-title h2{
+    float:left;
+    color:#000;
+    font-size:13px;
+    border-bottom:2px solid #ffab00;
+    padding-bottom:8px;
+    margin-top:5px;
+}
+
+.business-title span{
+    font-size:11px;
+    color:#707070;
+    padding-top:10px;
+    padding-right:15px;
+}
+
+.business-title span a{
+    font-size:11px;
+    color:#707070;
+}
+
+.text{
+    width:97%;
+    overflow:hidden;
+}
+
+.text p{
+    width:100%;
+    overflow:hidden;
+    margin-top:30px;
+    font-size:13px;
+    color:#000;
+    line-height:23px;
+}
+
+.text ul li{
+    list-style-position: inside;
+    list-style-type:disc !important;
+    font-size:13px;
+    color:#000;
+    line-height:23px;
+}
+
+.aboutUs-footer{
+    width:870px;
+    overflow:hidden;
+    margin:0 auto;
+    margin-top:108px;
+    margin-bottom:50px;
+}
+
+.aboutUs-footer>span{
+    font-size:13px;
+    float:left;
+}
+
+.aboutUs-footer p{
+    float:right;
+}
+
+.aboutUs-footer p a,.aboutUs-footer p span{
+    font-size:13px;
+}
+
+.service-box{
+    width:100%;
+    height:108px;
+    position:relative;
+}
+
+.service-box span{
+    position:absolute;
+    bottom:30px;
+    left:16px;
+    color:#094a84;
+    font-weight:bold;
+    font-size:15px;
+}
+

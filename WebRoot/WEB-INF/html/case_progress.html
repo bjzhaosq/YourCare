@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<#include "include/resource.html">
+<body>
+
+     <div class="main_content_box">
+                <div class="case case3" style="display:block;">
+                    <h3 class="case_title">案件办理</h3>
+                    <div class="cm_main1">
+                        <div class="cm_main_top">
+                            <span>案件进度</span>
+                        </div>
+                        <div class="dwidth">
+                            <form action="/case/saveSchedule.html" class="case_form4" id="form">
+                                <table class="pro_tb">
+                                <input type="hidden" id="caseId" name="caseId" <#if lawCase??>value="${lawCase.id!''}"</#if>
+                                    <tr>
+                                        <td>案件编号</td>
+                                        <td><span>${lawCase.caseNumber}</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>案件进度</td>
+                                        <td><span class="small_btn sma_add" onclick="addTr()">添加</span></td>
+                                    </tr>
+                                    	<#if lawProcessList??>
+										<#list lawProcessList as lpl>
+                                    <tr>
+	                                    	<td colspan="2">
+		                                    	<input type="text"  value="${lpl.name}" readonly unselectable="on">
+		                                    	<input type="text"  value="${lpl.processType.name}" readonly unselectable="on">
+		                                    	<input type="checkbox" style="margin-left:5px;" disabled="disabled" <#if lpl.isMessage?? && lpl.isMessage=='1' > checked="checked"</#if>>消息提醒
+		                                    	<input class="deadline" value="${lpl.deadline!''}" readonly unselectable="on" type="text">
+		                                    	<span class="rl" style="margin:0 10px 0 2px;">历</span>
+		                                    	<input type="text" value="${lpl.userId.username}" readonly unselectable="on">
+		                                    	<span class="small_btn del_tr" onclick="dellpl(event,'${lpl.id}','${lpl.status}');">删除</span>
+	                                    	</td>
+                                    </tr>
+                                    
+                                    	 </#list>
+							           	<#else></#if>
+                                </table>
+                                <p class="case_form4_btn">
+	                                <span style="margin-right:20px;" id="tijiao">提交</span>
+	                                <a href="/case/case_M.html?status=2"><span style="margin-left:20px;">取消</span></a>
+                                </p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+     </div>
+     <div class="pop_box" >
+            <div class="pop_content">
+                <i class="close">x</i>
+                <p><input type="text" name="username" id="username_u" placeholder="请输入名称">
+                <span class="small_btn" id="search">搜索</span></p>
+                <input type="hidden" id="user_cp">
+                <div class="name_lists" id="name_lists_u">
+                    <#if userList??>
+			            <#list userList as ul>
+			                <span onclick="choice('${ul.username}','${ul.id}')" >${ul.username}</span>
+			            </#list>
+		            <#else></#if>
+                </div>
+            </div>
+        </div>
+     <script>
+            $('.pop_box').height($(window).height());
+
+            function searchPop(cp){
+            	$("#user_cp").val(cp);
+                $('.pop_box').show();
+            }
+
+            $('.close').click(function(){
+                $('.pop_box').hide();
+            })
+        </script>
+     <script type="text/javascript">
+			function choice(name,id){
+				var cp = $("#user_cp").val();
+				$("#username_"+cp).val(name);
+				$("#userId_"+cp).val(id);
+				$('.pop_box').hide();
+			}
+		</script>
+		<script type="text/javascript">
+		$("#search").click(function(){
+			//alert("搜索方法")
+			var name = $("#username_u").val();
+			 $.ajax({   
+	              type: "POST",  
+	              url: "/case/findUser.html",   
+	              data: {"username":name},
+	              dataType: "json",
+	              success: function(data) {
+	            	  //var list = data.userList;
+	            	  $("#name_lists_u").empty();
+	            	  var date=eval(data);
+	            	  var option = ""; 
+	            	  if(date != null && date!='' && date!="undefined"){
+			            	for(var i=0;i<date.userList.length;i++){
+			            		var username = data.userList[i]['username'];
+			            		var id = data.userList[i]['id'];
+			            		option += "<span onclick=\"choice('"+username+"','"+id+"'\)\">" +username+ "</span>";
+			            	}
+			            $("#name_lists_u").append(option); 
+			        	}
+	              }  
+	         }); 
+		}); 
+		</script>
+<script type="text/javascript">
+		$("#tijiao").click(function(){
+			$("#form").submit();
+		}); 
+</script>
+<script>
+
+		$.validator.setDefaults({
+		    submitHandler: function(form) {
+		      //alert("提交事件!");
+		      form.submit(); 
+		    }
+		
+		});
+		
+		$().ready(function() {
+			// 提交时验证表单
+			var validator = $("#form").validate({
+				
+			});
+		});
+</script>
+<style>
+	.error{
+		color:red;
+	}
+</style>
+     <script>
+            $(document).ready(function(){
+                $('.main_content_box').insertAfter($('.main_content_top'));
+
+                $('#a5').css("background","rgba(64,123,167,.9)");
+                var txt=$('#a5').html();
+                var bg=$('#a5 i').css('backgroundImage');
+                $('.main_content_top h3').html(txt);
+                $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+            });
+
+            function getNowFormatDate() {
+                var date = new Date();
+                var seperator1 = "-";
+                var seperator2 = ":";
+                var month = date.getMonth() + 1;
+                var strDate = date.getDate();
+                if (month >= 1 && month <= 9) {
+                    month = "0" + month;
+                }
+                if (strDate >= 0 && strDate <= 9) {
+                    strDate = "0" + strDate;
+                }
+                var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
+                        + " " + date.getHours() + seperator2 + date.getMinutes()
+                        + seperator2 + date.getSeconds();
+                return currentdate;
+            } 
+            
+            var time = getNowFormatDate();
+            function addTr(){
+            	var cp = $(".cp").length
+                $('.pro_tb').append('<tr><td colspan="2"><input type="hidden" name="lawProcessList['+cp+'].addtime" value="'+time+'"><input type="hidden" name="lawProcessList['+cp+'].lawCaseId.id" value="${lawCase.id!''}"><input type="hidden" name="lawProcessList['+cp+'].status" value="1"><input type="text" placeholder="工作内容" required="true" maxlength="500" class="cp" name="lawProcessList['+cp+'].name"><select style="margin-left:4px;" name="lawProcessList['+cp+'].processType.id"><#if processTypeList??><#list processTypeList as ptl><option value="${ptl.id!''}">${ptl.name!''}</option></#list><#else></#if></select><input type="hidden" id="'+cp+'" name="lawProcessList['+cp+'].isMessage" value="0"><input type="checkbox" name="" style="margin-left:15px;" value="1" onclick="javascript:document.getElementById('+cp+').value=1;" >消息提醒<input name="lawProcessList['+cp+'].deadline" required="true" style="margin-left:3px;" class="off_date Wdate" type="text" readonly unselectable="on" onClick=" WdatePicker();"><span class="rl" style="margin:0 15px 0 7px;">历</span><input type="text" required="true" id="username_'+cp+'" readonly unselectable="on"><input type="hidden" id="userId_'+cp+'" name="lawProcessList['+cp+'].userId.id" value=""><span class="small_btn" onclick="searchPop('+cp+')">查找</span><span class="small_btn del_tr" onclick="delTr(event);">删除</span></td></tr>');
+            };
+            
+            
+            function delTr(event){
+                var e=event.target;
+                $(e).parent().parent('tr').remove();
+            }
+
+            
+     </script>
+     <script>
+            function dellpl(event,id,status){
+		        var e=event.target;
+            	  if(status!='1'){
+            		alert("该项目不能被删除");
+            		return;
+            	 } 
+            	$.ajax({   
+  	              type: "POST",  
+  	              url: "/case/delSchedule.html",   
+  	              data: {"progressId":id,"status":status},
+  	              success: function(data) {
+  	            	  if(status=='1'){
+		                $(e).parent().parent('tr').remove();
+  	            	  }else{
+  	            		alert("该项目不能被删除");
+  	            		return;
+  	            	  }
+  	              },
+
+  	         	}); 
+            	
+            	
+            }
+	</script>
+
+</body>
+</html>

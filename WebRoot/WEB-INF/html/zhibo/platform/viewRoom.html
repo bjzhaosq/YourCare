@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="zh">
+<#include "include/resource.html">
+    <body>
+    <section id="container" class="">
+        <#include "include/head.html">
+            <section id="main-content">
+                <section class="wrapper">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <ul class="breadcrumb">
+                                <li><a href="general.html#"><i class="icon-home"></i> Home</a></li>
+                                <li><a href="/platform/rooms.html?src=${src!''}"><#if yxName??>${yxName!''}</#if></a></li>
+                                <li class="active">${zbName!''}</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <section class="panel">
+                                <header class="panel-heading">
+                                    <#if biaoti??>${biaoti!''}</#if>
+                                </header>
+                                <div class="panel-body">
+                                    <div style="text-align: center">
+                                        <embed width="1000" height="625" allownetworking="all" allowscriptaccess="always"
+                                               src="${url!''}" quality="high" bgcolor="#000" wmode="window"
+                                               allowfullscreen="true" allowFullScreenInteractive="true"
+                                               type="application/x-shockwave-flash">
+                                    </div>
+                                </div>
+                            </section>
+                        </div>
+                    </div>
+
+                </section>
+            </section>
+    </section>
+    <input type="hidden" value="<#if biaozhi??>${biaozhi!''}</#if>" id="biaozhi">
+    </body>
+    <script src="${webroot}/theme_rx/zhibo/platform/js/jquery.js"></script>
+    <script src="${webroot}/theme_rx/zhibo/platform/js/bootstrap.min.js"></script>
+    <script src="${webroot}/theme_rx/zhibo/platform/js/jquery.scrollTo.min.js"></script>
+    <script src="${webroot}/theme_rx/zhibo/platform/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="${webroot}/theme_rx/zhibo/platform/js/common-scripts.js"></script>
+    <script>
+        $(function () {
+            var biaozhi =  "${biaozhi!''}";
+            $('#'+biaozhi).addClass("active")
+        })
+    </script>
+</html>

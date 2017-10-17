@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<#include "include/resource.html">
+    <body>
+
+    <div class="main_content_box">
+        <div class="dossier dossier2" style="display:block;" >
+            <h3 class="dossier_title">卷宗评阅</h3>
+            <div class="cm_main" style="display: block">
+                <div class="cm_main_top">
+                    <span>案件信息</span>
+                </div>
+                <div class="dwidth">
+                    <!-- <input type="hidden" value="<#if lawCase??>${lawCase.id!''}<#else>0</#if>" id="caseId"> -->
+                    <form action="">
+                        <table class="dossier_infor">
+                            <tr>
+                                <td style="text-align: right;padding-right:5px;">案件编号:</td>
+                                <td>&nbsp;&nbsp;<#if lawCase??>${lawCase.caseNumber!''}</#if></td>
+                                <td>案件名称:</td>
+                                <td><#if lawCase??>${lawCase.caseName!''}</#if></td>
+                                <td>案件类型:</td>
+                                <td><#if lawCase??>${lawCase.lawTypeId.statusOne!''}-${lawCase.lawTypeId.statusTwo!''}</#if></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;padding-right:5px;">委托人:</td>
+                                <td>&nbsp;&nbsp;<#if lawCase??>${lawCase.customerId.username!''}</#if></td>
+                                <!--<td><input type="text" style="width:200px;height:25px;"></td>-->
+                                <td>代理律师:</td>
+                                <td><#if lawCase.lawerCases[0]??>${lawCase.lawerCases[0].userId.username!''}<#else>无</#if></td>
+                                <!--<td><input type="text" style="width:140px;height:25px;"></td>-->
+                                <td>协助律师:</td>
+                                <td><#if lawCase.lawerCases[0]??>
+                                    <#if (lawCase.lawerCases[0].lawerHelpCases?size>0)>
+                                        <#list lawCase.lawerCases[0].lawerHelpCases as item>
+                                            ${item.userId.username!''}
+                                        </#list>
+                                        <#else>无
+                                    </#if>
+                                    <#else>无
+                                </#if></td>
+                                <!--<td><input type="text" style="width:140px;height:25px;"></td>-->
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;padding-right:5px;vertical-align: top;padding-top: 10px">案件说明:</td>
+                                <td colspan="5" style="padding-left: 10px;padding-top: 10px;">
+                                    <div style="border: 1px solid #ccc;width: 80%;padding: 20px;background-color: #f7f9fc">
+                                        <#if lawCase??>${lawCase.content!''}</#if>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: right;padding-right:5px;vertical-align: top;padding-top: 10px">附件:</td>
+                                <td colspan="5" style="padding-left: 10px;padding-top: 10px;">
+                                    <ul class="fj_lists">
+                                        <#if (lawCase.lawAccessories?size>0)>
+                                            <#list lawCase.lawAccessories as item>
+                                                <li onclick="previews('${item.remark}','${item.url}')">${item_index+1!''}.&nbsp;&nbsp;<a style="text-decoration:none">${item.name!''}</a></li>
+                                            </#list>
+                                        <#else><li>无</li>
+                                        </#if>
+                                    </ul>
+                                </td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <div class="cm_main_top">
+                    <span>案件进度</span>
+                </div>
+                <div class="dwidth">
+                    <#if list??>
+                        <table class="dossier_pro" id="dossier_pro" style="width:100%;" cellspacing="7">
+                            <tr>
+                                <td>编号</td>
+                                <td>进度</td>
+                                <td>时间(小时)</td>
+                                <td>截止时间</td>
+                                <td>代理律师</td>
+                                <td>状态</td>
+                                <td>选项</td>
+                            </tr>
+                            <#list list as item>
+                                <tr>
+                                    <td>${item_index+1!"-"}</td>
+                                    <td>${item.name!"-"}</td>
+                                    <td>
+                                        <#if item.lawProcessContexts[0]??>
+                                            ${item.lawProcessContexts[0].taskTime!"0"}
+                                            <#else>
+                                                0
+                                        </#if>
+                                    </td>
+                                    <td>${item.deadline!"-"}</td>
+                                    <td>${item.userId.username!"-"}</td>
+                                    <td>
+                                        <#if item.status == '0'>
+                                            未完成
+                                            <#elseif item.status == '1'>
+                                                未开始
+                                                <#elseif item.status == '2'>
+                                                    进行中
+                                                    <#elseif item.status == '3'>
+                                                        已提交
+                                        </#if>
+                                    </td>
+                                    <td><span class="small_btn detail_btn" onclick="fun_detail('${item.id}')">详情</span></td>
+                                </tr>
+                            </#list>
+                        </table>
+                        <#else></#if>
+
+                    <#if pages??&&pages.pages!=1>
+                        <div class="pages">
+                            <div id="Pagination"></div>
+                            <div class="searchPage">
+                                <span class="page-sum">共<strong class="allPage">${pages.pages!""}</strong>页</span>
+                                <span class="page-go">跳转<input type="text" id="goPage">页</span>
+                                <a href="javascript:void(0);" id="go" class="page-btn">GO</a>
+                            </div>
+                        </div>
+                        <#else></#if>
+                </div>
+                <div class="cm_main_top">
+                    <span>案件意见</span>
+                </div>
+                <div class="dwidth">
+                    <form action="/case/saveComment2.html" method="post" id="form2">
+                    <input type="hidden" value="<#if lawCase??>${lawCase.id!''}<#else>0</#if>" id="caseId" name="caseId">
+                        <table class="dossier_comment">
+                            <tr>
+                                    <td style="vertical-align:top;">意见</td>
+                                <td><textarea name="comment" id="comment" cols="116" rows="5" style="resize:none;width: 80%"></textarea></td>
+                            </tr>
+                        </table>
+                    </form>
+                </div>
+                <p class="d_func_btn"><span id="tijiao"  style="margin-right:20px;">提交</span>
+                <a href="/case/case_M.html?status=3"><span style="margin-left:20px;">取消</span></a></p>
+            </div>
+        </div>
+    </div>
+    <div class="pop_box" >
+        <div class="pop_content1">
+            <i class="close">x</i>
+            <div class="tab_toggle" style="width: 100%;border: none;background-color: transparent" id="showDetail">
+                <dl>
+                    <dt><span>进度2</span><span>时间:2017-08-03 18:00</span><span>具体地址</span><b></b></dt>
+                    <dd>进度内容说明进度内容说明进度内容说明进度内容说明</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript">
+	$("#tijiao").click(function(){
+		var comment = $('#comment').val();
+        var caseId = $('#caseId').val();
+        if(comment == ''){
+            alert("意见不可以为空");
+        }else{
+			$("#form2").submit();
+        }
+	}); 
+</script>
+    <script type="text/javascript">
+        //分页相关
+        url=window.location.href
+        $(function () {
+            $(document).ready(function() {
+                $("#Pagination").pagination(${pages.pages}, {
+                    link_to: "javascript:void(0);",
+                    prev_text: "上一页",
+                    next_text: "下一页 ",
+                    num_edge_entries: 2,
+                    num_display_entries: 6,
+                    callback:PageCallback
+                });
+            });
+            function PageCallback(index, jq) {
+                InitTable(index);
+            }
+            function InitTable(index){
+                $.ajax({
+                    type: "POST",
+                    url: url,//提交到一般处理程序请求数据
+                    data: {"page":index},
+                    success: function(data) {
+                        var $data = $(data) //将整个文档转化为jquery对象
+                        var target_div = $data.find("#dossier_pro"); //获取到你要显示的div
+                        $(".dossier_pro").replaceWith(target_div)	//替换表格
+                    }
+                });
+            }
+            $("#go").click(function(){
+                var page = $("#goPage").val();
+                if(page==""|| page==null){
+                    window.location.reload();
+                }else{
+                    page = parseInt(page-1);
+                    InitTable(page);
+                }
+            });
+        });
+
+    </script>
+    <script>
+        $('.pop_box').height($(window).height());
+
+        $('.close').click(function(){
+            $('.pop_box').hide();
+        })
+
+        //        $('.detail_btn').click(function(){
+        //            $('.pop_box').show();
+        //        })
+    </script>
+
+    <script>
+        //        $('.tab_toggle dl dt').click(function(){
+        //            if($(this).next('dd').is(":hidden")){
+        //                $(this).next('dd').slideDown();
+        //                $(this).css("borderBottom","1px dotted #ccc");
+        //                $(this).children('b').css("transform","rotate(-90deg)");
+        //            }else{
+        //                $(this).next('dd').slideUp();
+        //                $(this).css("borderBottom","none");
+        //                $(this).children('b').css("transform","rotate(0)");
+        //            }
+        //        })
+
+        function fun_click(event){
+            var el=event.target;
+            if($(el).parent('dt').next('dd').is(":hidden")){
+                $(el).parent('dt').next('dd').slideDown();
+                $(el).parent('dt').css("borderBottom","1px dotted #ccc");
+                $(el).siblings('b').css("transform","rotate(-90deg)");
+            }else{
+                $(el).parent('dt').next('dd').slideUp();
+                $(el).parent('dt').css("borderBottom","none");
+                $(el).siblings('b').css("transform","rotate(0)");
+            }
+        }
+
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            $("#Pagination").pagination("15");
+        });
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('.main_content_box').insertAfter($('.main_content_top'));
+
+            $('#a6').css("background","rgba(64,123,167,.9)");
+            var txt=$('#a6').html();
+            var bg=$('#a6 i').css('backgroundImage');
+            $('.main_content_top h3').html(txt);
+            $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+        });
+    </script>
+
+    <script>
+        function fun_detail(a) {
+            $.ajax({
+                type : 'POST',
+                url : "/dossier/processDetail.html",
+                dataType : 'json',
+                data :"id="+a,
+                cache : false,
+                error : function(XMLHttpRequest, textStatus, errorThrown){
+                    alert("对不起出错了");
+                },
+                success : function(date) {
+                    var code = date.code;
+                    var msg = date.msg;
+                    if(code == 0){
+                        alert(msg);
+                    }else{
+                        $('#showDetail').html("")
+                        for(var i=0;i<date.list.length;i++){
+                            $('#showDetail').append('<dl>' +
+                                '<dt><p onclick="fun_click(event)"></p><span>进度'+(i+1)+'</span><span>时间:'+date.list[i].addtime+'</span><b></b></dt>' +
+                                '<dd>'+date.list[i].context+'</dd>' +
+                                '</dl>');
+                        }
+                        $('.pop_box').show();
+                    }
+                }
+            });
+        }
+
+        function fun_comment() {
+            var comment = $('#comment').val();
+            var caseId = $('#caseId').val();
+            if(comment == ''){
+                alert("意见不可以为空");
+            }else{
+                $.ajax({
+                    type : 'POST',
+                    url : "/case/saveComment.html",
+                    dataType : 'json',
+                    data: {"comment":comment,"caseId":caseId},
+                    error : function(XMLHttpRequest, textStatus, errorThrown){
+                        alert("对不起出错了");
+                    },
+                    success : function(date) {
+						alert(345);
+                        var code = date.code;
+                        var msg = date.msg;
+                        if(code == 0){
+                            alert(msg);
+                        }else{
+							alert(098);
+                           // window.location.href("${weburl}/case/case_M.html?status=3");
+                            //window.location.href("index.html");
+                            window.open("${weburl}/case/case_M.html?status=3");
+                        }
+                    }
+                });
+            }
+        }
+
+        function previews(name,url){
+//            if(name=='doc'||name=='docx'||name=='xls'||name=='xlsx'||name=='ppt'||name=='pptx'){
+//                window.open("https://view.officeapps.live.com/op/view.aspx?src=${weburl}/"+url);
+//            }else{
+//                window.open("/"+url);
+//            }
+            window.open("/"+url);
+        }
+    </script>
+    </body>
+</html>

@@ -1,0 +1,386 @@
+.dossier{
+    width:100%;
+    display:none;
+}
+
+.dossier_title{
+    font-size:15px;
+    color:#00639e;
+    font-weight:normal;
+}
+
+.cm_main{
+    width:100%;
+    margin-top:10px;
+    background-color:#e9eef6;
+    padding-bottom:60px;
+}
+
+.cm_main_top{
+    width:100%;
+    height:45px;
+    background-color:#cfe2ed;
+}
+
+.cm_main_top span{
+    float:left;
+    line-height:45px;
+    font-size:15px;
+    color:#6a6a6a;
+    padding-left:30px;
+}
+
+.dwidth{
+    width:100%;
+    margin:0 auto;
+    margin-top:30px;
+}
+
+.dossier_form,
+.out_tab,
+.in_tab,
+.dossier form,
+.dossier form table{
+    width:100%;
+}
+
+.in_tab{
+    border-collapse:separate;
+    border-spacing:5px;
+}
+
+.out_tab td,
+.in_tab td,
+.dossier_pro td,
+.dossier_comment td{
+    font-size:15px;
+    color:#6a6a6a;
+}
+
+.bh_input{
+    width:200px;
+    height:25px;
+}
+
+.name_input{
+    width:160px;
+    height:25px;
+}
+
+.in_tab td{
+    text-align:center;
+    height:40px;
+    background-color:#cfe2ed;
+}
+
+.in_tab tr:first-child td{
+    background-color:#bdd9e9;
+}
+
+.in_tab td:first-child{
+    width:220px;
+}
+
+.in_tab td:last-child{
+    width:170px;
+}
+
+.name_input+span{
+    display:inline-block;
+    width:48px;
+    height:22px;
+    border-radius:3px;
+    background-color:#a9c8d9;
+    color:#fff !important;
+    text-align:center;
+    margin-left:10px;
+    cursor:pointer;
+    padding-left:0 !important;
+}
+
+.d_func_btn{
+    text-align:center;
+    margin-top:80px;
+}
+
+.d_func_btn span{
+    display:inline-block;
+    width:130px;
+    height:32px;
+    background-color:#d2d2d2;
+    line-height:32px;
+    color:#00639e;
+    font-size:16px;
+    border-radius:2px;
+    cursor:pointer;
+}
+
+.d_func_btn span:hover{
+    background-color:#009bdb;
+    color:#fff;
+}
+
+.dossier_infor,.dossier_pro{
+    margin-bottom:20px;
+}
+
+.dossier_pro{
+    border-collapse:separate;
+    border-spacing:5px;
+}
+
+.dossier_infor td{
+    font-size:15px;
+    color:#6a6a6a;
+    height:40px;
+}
+
+.dossier_infor td i{
+    display:inline-block;
+    width:70px;
+    height:22px;
+    margin-right:10px;
+    background-color:#a9c8d9;
+    position:relative;
+    border-radius:3px;
+    color:#fff;
+    font-style:normal;
+    text-align:center;
+}
+
+.dossier_infor td input[type="file"]{
+    width:70px;
+    height:22px;
+    filter: alpha(opacity=0);
+    opacity:0;
+    position:absolute;
+    left:0;
+    cursor:pointer;
+}
+
+.dossier_pro td{
+    height:40px;
+    background-color:#cfe2ed;
+    text-align:center;
+}
+
+.dossier_pro tr:first-child td{
+    background-color:#bdd9e9;
+}
+
+.dossier_comment tr:first-child td{
+    height:60px;
+}
+
+.dossier_comment tr td:first-child{
+    padding:0 10px 0 30px;
+}
+
+.d_func_btn{
+    margin-top:40px;
+}
+
+.in_tab tr td:first-child{width:60px !important;}
+.in_tab tr td:nth-child(4),.in_tab tr td:nth-child(5){width:120px !important;}
+.in_tab tr td:nth-child(6){width:80px !important;}
+.in_tab tr td:last-child{width:100px !important;}
+.in_tab tr td:nth-child(2){
+    padding:0 8px;
+    width:180px;
+}
+
+.small_btn{
+    display:inline-block;
+    width:50px;
+    height:22px;
+    line-height:25px;
+    background-color:#a9c8d9;
+    color:#fff;
+    border-radius:3px;
+    text-align:center;
+    margin-left:5px;
+    cursor:pointer;
+}
+
+.small_btn:hover{
+    color:#fff;
+    text-decoration:none;
+}
+
+.dossier_pro tr td:first-child{
+    width:50px;
+}
+
+.dossier_pro tr td:nth-child(6),
+.dossier_pro tr td:nth-child(3),
+.dossier_pro tr td:last-child{
+    width:110px;
+}
+
+.pop_box{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,.6);
+    display:none;
+}
+
+.pop_content1{
+    width:700px;
+    height:400px;
+    overflow-y:auto;
+    border:1px solid #ccc;
+    background-color:#fff;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-200px;
+    margin-left:-350px;
+    box-shadow: 0 0 20px grey inset;
+    padding:30px 20px;
+    text-align:center;
+    scrollbar-track-color:#cfe2ed;
+    scrollbar-face-color: #a9c8d9;
+    scrollbar-highlight-color: #a9c8d9;
+    scrollbar-shadow-color: #a9c8d9;
+    scrollbar-arrow-color: #fff;
+}
+
+.pop_content1::-webkit-scrollbar-track-piece{
+    background-color:#cfe2ed;
+}
+
+.pop_content1::-webkit-scrollbar-thumb{
+    background-color:#a9c8d9;
+    width:20px;
+    border-radius:10px;
+}
+
+.pop_content1::-webkit-scrollbar{
+    width:8px;
+}
+
+
+.close{
+    position:absolute;
+    right:10px;
+    top:5px;
+    font-style:normal;
+    cursor:pointer;
+}
+
+.tab_toggle{
+    background-color:#f7f9fc;
+    padding:20px 20px;
+}
+
+.tab_toggle dl{
+    background-color:#f6f5f5;
+}
+
+.tab_toggle dl dt{
+    height:40px;
+    line-height:40px;
+    position:relative;
+    text-align:left;
+    padding-left:10px;
+}
+
+.tab_toggle dl dt p{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:40px;
+    background-color:transparent;
+    z-index:10000000;
+    cursor: pointer;
+}
+
+.tab_toggle dl dt span{
+    margin-right:30px;
+}
+
+.tab_toggle dl dt b{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    background:url('../images/s_a_icon.png') no-repeat;
+    position:absolute;
+    right:20px;
+    bottom:-5px;
+    cursor:pointer;
+}
+
+.tab_toggle dl dd{
+    padding:15px 0;
+    text-align:left;
+    padding-left:10px;
+    display:none;
+}
+
+.dossier_comment tr td:first-child{
+    width:110px;
+    text-align:right;
+}
+
+.dossier_comment tr:nth-child(2){
+    height:50px;
+}
+
+.comment_lists{
+    padding:15px 15px;
+    border-top:1px dotted #ccc;
+    width:80%;
+    background-color:#f7f9fc;
+}
+
+.comment_lists:first-child{
+    border-top:none;
+}
+
+.comment_top span:first-child{
+    font-size:13px;
+    color:dodgerblue;
+}
+
+.comment_top span:last-child{
+    font-size:13px;
+    color:slategrey;
+    padding-left:20px;
+}
+
+.comment_bottom span:first-child{
+    background:url('../images/dz_icon.png') no-repeat;
+    padding-left:20px;
+    cursor:pointer;
+}
+
+.comment_bottom span:first-child:hover{
+    color:dodgerblue;
+}
+
+.comment_bottom span:last-child{
+    background:url('../images/hf_icon.png') no-repeat;
+    padding-left:20px;
+    margin-left:30px;
+    cursor:pointer;
+}
+
+.comment_bottom span:last-child:hover{
+    color:dodgerblue;
+}
+.dossier_infor td:nth-child(1), .dossier_infor td:nth-child(3), .dossier_infor td:nth-child(5){text-align:right;padding-right:10px;width: 80px}
+
+.fj_lists{
+    list-style-type:none;
+}
+
+.fj_lists li{
+    padding:0 0 15px 0;
+    cursor:pointer;
+    height:36px;
+    white-space:nowrap;
+    width:720px;
+}

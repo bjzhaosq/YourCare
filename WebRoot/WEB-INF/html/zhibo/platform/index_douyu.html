@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="zh">
+<#include "include/resource.html">
+<body>
+<section id="container" class="">
+    <#include "include/head.html">
+    <section id="main-content">
+        <section class="wrapper">
+            斗鱼直播
+        </section>
+    </section>
+        <input type="hidden" value="<#if nid??>${nid!''}</#if>" id="scr">
+</section>
+</body>
+    <script src="${webroot}/theme_rx/zhibo/platform/js/jquery.js"></script>
+    <script src="${webroot}/theme_rx/zhibo/platform/js/bootstrap.min.js"></script>
+    <script src="${webroot}/theme_rx/zhibo/platform/js/jquery.scrollTo.min.js"></script>
+    <script src="${webroot}/theme_rx/zhibo/platform/js/jquery.nicescroll.js" type="text/javascript"></script>
+    <script src="${webroot}/theme_rx/zhibo/platform/js/common-scripts.js"></script>
+    <script type="text/javascript">
+        function fun_lookr(roomId,yxName){
+            var src = $('#scr').val();
+            url = "/platform/lookRoom.html?roomId="+roomId+"&yxName="+yxName+"&src="+src;
+            window.location.href=url;
+        }
+    </script>
+</html>

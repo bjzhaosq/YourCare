@@ -1,0 +1,71 @@
+
+    <div class="law_container">
+        <div class="law_top">
+            <div class="law_logo">
+                <a href="index.html" class="law_logo_icon"></a>
+                <span></span>
+                <a href="" class="law_logo_title"></a>
+            </div>
+            <p class="law_top_info">你好：<span style="padding-right:15px;">${Session.user.username}</span>今天是<span id="time" style="padding-left:15px;" >2018年7月12日 &nbsp;&nbsp;星期二</span></p>
+            <p class="law_top_se">
+                <!--<a href="">设置</a>-->
+                <!--<span>|</span>-->
+                <a href="/login/loginout.html">退出</a>
+            </p>
+        </div>
+        <div class="law_main_container">
+            <div class="left_menu">
+                <a href="${webroot}/index.html" target="" id="a1"> <i></i> 首页</a>
+                <a href="${webroot}/customer/customer_M.html" target="" id="a2"> <i></i> 客户管理</a>
+                <a href="/user/showLawer.html" target="" id="a3"> <i></i> 律所人员管理</a>
+                <a href="/power/showPower.html" target="" id="a4"> <i></i> 权限管理</a>
+                <a href="/todo/showTodo.html" id="a8"><i></i>待办事项</a>
+                <a href="javascript:void(0);" target=""  id="a5"> <i></i> 案件管理<b></b></a>
+				<div class="submenu">
+					<a href="/case/case_M.html?status=1"><span>案件管理</span></a>
+					<a href="/case/case_M.html?status=2"><span>案件进度</span></a>
+					<a href="/case/case_M.html?status=3"><span>案件终审</span></a>
+				</div>
+                <!-- <a href="/case/case_M.html" target="" id="a5"> <i></i> 案件管理</a> -->
+                <a href="/dossier/showDossier.html" target="" id="a6"> <i></i> 卷宗管理</a>
+                <a href="/role/showRole.html" target="" id="a7"> <i></i> 角色类型管理</a>
+
+                
+            </div>
+            <div class="main_content">
+                <div class="main_content_top">
+                    <h3><i></i></h3>
+                    <form class="search_bar" action="/index.html" id="search_bar">
+                        <input type="text" name="caseName" placeholder="搜索项目名称">
+                        <i onclick="search()"></i>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="law_footer">
+            <p>&copy;${copyright} | ${webname} | ${beian}</p>
+        </div>
+    </div>
+<<script type="text/javascript">
+	function search(){
+		$("#search_bar").submit();
+	}
+</script>
+<script>
+$(function(){
+	var now = new Date();
+	var date = now.getFullYear()+"年"+(now.getMonth()+1)+"月"+now.getDate()+"日"
+	var week =now.getDay();  
+    var s ="";  
+    switch(week){  
+     case 0: s = "星期日";break;  
+     case 1: s = "星期一";break;  
+     case 2: s = "星期二";break;  
+     case 3: s = "星期三";break;  
+     case 4: s = "星期四";break;  
+     case 5: s = "星期五";break;  
+     case 6: s = "星期六";break;  
+   }  
+	$('#time').html(date+"&nbsp;&nbsp;"+s);
+})
+</script>

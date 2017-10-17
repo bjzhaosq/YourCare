@@ -1,0 +1,591 @@
+.case{
+    width:100%;
+    display:none;
+}
+
+.case_title{
+    font-size:15px;
+    color:#00639e;
+    font-weight:normal;
+}
+
+.cm_main{
+    width:100%;
+    margin-top:10px;
+    background-color:#e9eef6;
+    padding-bottom:60px;
+}
+
+.cm_main_top{
+    width:100%;
+    height:45px;
+    background-color:#cfe2ed;
+}
+
+.cm_main_top span{
+    float:left;
+    line-height:45px;
+    font-size:15px;
+    color:#6a6a6a;
+    padding-left:30px;
+}
+
+.cm_main_top b{
+    float:right;
+    line-height:45px;
+    color:#00639e;
+    font-size:15px;
+    font-weight:normal;
+    padding-right:40px;
+}
+
+.cm_main_top b:before{
+    content:'●';
+    color:#e60012;
+    padding-right:10px;
+}
+
+.dwidth{
+    width:1000px;
+    margin:0 auto;
+    margin-top:30px;
+    padding-left:50px;
+}
+
+.case_form1,.case_form1 table{
+    width:100%;
+}
+
+.case_form1 table td{
+    font-size:15px;
+    color:#6a6a6a;
+    padding-bottom:20px;
+}
+
+.case_form1 table td:first-child,.case_form1 table td:nth-child(3){
+    text-align:right;
+    padding-right:15px;
+    width:90px;
+}
+
+.case_form1 table td input, .case_form1 table td select{
+    width:160px;
+    height:25px;
+}
+
+.case_form1 table tr:first-child span,.case_form1 table tr:nth-child(2) span{
+    color:red;
+    padding-left:10px;
+}
+
+.case_search,.case_form3 table tr:first-child span,.case_form3 table tr:nth-child(2) span,
+.case_form4 table tr:nth-child(2) span,.cz{
+    display:inline-block;
+    width:48px;
+    height:22px;
+    border-radius:3px;
+    background-color:#a9c8d9;
+    color:#fff !important;
+    text-align:center;
+    margin-left:10px;
+    cursor:pointer;
+    padding-left:0 !important;
+}
+
+.rl{
+    display:inline-block;
+    width:30px;
+    height:22px;
+    border-radius:3px;
+    background-color:#a9c8d9;
+    color:#fff !important;
+    text-align:center;
+    margin-left:10px;
+    cursor:pointer;
+    padding-left:0 !important;
+}
+
+.case_form1 table td[colspan="4"]{
+    text-align:center;
+    padding:15px 0 80px 0;
+}
+
+.case_form1 table td[colspan="4"] span,.case_form3 table td[colspan="4"] span,.case_form4_btn span,.case_form5_btn span{
+    display:inline-block;
+    width:130px;
+    height:32px;
+    background-color:#d2d2d2;
+    line-height:32px;
+    color:#00639e;
+    font-size:16px;
+    border-radius:2px;
+    cursor:pointer;
+}
+
+.case_form1 table td[colspan="4"] span:hover,.case_form3 table td[colspan="4"] span:hover,.case_form4_btn span:hover,.case_form5_btn span:hover{
+    background-color:#009bdb;
+    color:#fff;
+}
+
+.select_img{
+    width:95px !important;
+    height:28px !important;
+}
+
+.upload_btn{
+    display:inline-block;
+    width:110px;
+    height:25px;
+    border-radius:3px;
+    background-color:#009bdb;
+    color:#fff;
+    text-align:center;
+    margin-left:15px;
+    cursor:pointer;
+}
+
+.case_form2{
+    margin-bottom:30px;
+}
+
+.case_form4,.case_form4 table,
+.case_form5,.case_form5 table{
+    width:100%;
+}
+
+.case_form4 table td,
+.case_form5 table td {
+    font-size:15px;
+    color:#6a6a6a;
+    padding-bottom:10px;
+}
+
+.case_form5 table td input{
+    width:150px;
+    height:25px;
+    margin-right:5px;
+    text-align:center;
+}
+
+.case_form5 table td select{
+    width:120px;
+    height:29px;
+}
+
+.case_form4 table td input[type="checkbox"]{
+    width:15px !important;
+    height:15px;
+}
+
+
+.case_form5 table td input[type="date"]{
+    width:240px;
+}
+
+.case_form4_btn,
+.case_form5_btn{
+    text-align:center;
+    margin-top:80px;
+}
+
+.case_form5_btn{
+    margin-top:40px;
+}
+
+.case_form5 p{
+    width:100%;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+    -ms-box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    padding:20px 0;
+    padding-left:20px;
+}
+
+.case_form5 table td input,
+.case_form5 table td select{
+    margin:0 10px;
+}
+
+.bz span{
+    display:inline-block;
+    width:95px;
+    height:45px;
+    background-color:#fff;
+    border:1px solid #ccc;
+    text-align:center;
+    line-height:45px;
+}
+
+.bz b{
+    display:inline-block;
+    width:34px;
+    height:22px;
+    background:url('../images/white_arrow_icon.png') no-repeat;
+    margin:0 4px;
+    vertical-align:middle;
+}
+
+.small_btn{
+    display:inline-block;
+    width:50px;
+    height:22px;
+    background-color:#a9c8d9;
+    color:#fff;
+    border-radius:3px;
+    text-align:center;
+    margin-left:5px;
+    cursor:pointer;
+}
+
+.small_btn:hover{
+    color:#fff;
+    text-decoration:none;
+}
+
+.big_btn{
+    display:inline-block;
+    width:150px;
+    height:30px;
+    background-color:#d2d2d2;
+    color:#00639e;
+    font-size:16px;
+    text-align:center;
+    line-height:30px;
+    border-radius:5px;
+    margin-right:50px;
+    cursor:pointer;
+}
+
+.big_btn:hover{
+    background-color:#009bdb;
+    color:#fff;
+}
+
+.case_M_tb{
+    width:100%;
+    border-collapse: separate !important;
+    border-spacing: 5px;
+}
+
+.case_M_tb td{
+    font-size:15px;
+    color:#6a6a6a;
+    text-align:center;
+    padding:8px 5px;
+    background-color:#cfe2ed;
+}
+
+.case_M_tb tr:first-child td{
+    background-color:#bdd9e9;
+}
+
+.case_M_tb tr td:first-child{
+    width:60px;
+}
+
+.case_M_tb tr td:nth-child(3){
+    width:180px;
+}
+
+.case_M_tb tr td:nth-child(4){
+    width:120px;
+}
+
+.case_M_tb tr td:last-child{
+    width:150px;
+}
+
+.pop_box{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    background:rgba(0,0,0,.6);
+    display:none;
+    z-index:10000000000 !important;
+}
+
+.pop_content{
+    width:300px;
+    height:400px;
+    overflow-y:auto;
+    overflow-x:hidden;
+    border:1px solid #ccc;
+    background-color:#fff;
+    position:fixed;
+    top:50%;
+    left:50%;
+    margin-top:-200px;
+    margin-left:-150px;
+    box-shadow: 0 0 20px grey inset;
+    padding:30px 20px;
+    text-align:center;
+    scrollbar-track-color:#cfe2ed;
+    scrollbar-face-color: #a9c8d9;
+    scrollbar-highlight-color: #a9c8d9;
+    scrollbar-shadow-color: #a9c8d9;
+    scrollbar-arrow-color: #fff;
+}
+.pop_content::-webkit-scrollbar-track-piece{
+    background-color:#cfe2ed;
+}
+
+.pop_content::-webkit-scrollbar-thumb{
+    background-color:#a9c8d9;
+    width:20px;
+    border-radius:10px;
+}
+
+.pop_content::-webkit-scrollbar{
+    width:8px;
+}
+
+.pop_content p{
+    border-bottom:1px solid #ccc;
+    padding-bottom:20px;
+}
+
+.pop_content p input{
+    width:180px;
+}
+
+.close{
+    position:absolute;
+    right:10px;
+    top:5px;
+    font-style:normal;
+    cursor:pointer;
+}
+
+.name_lists span{
+    display:block;
+    padding:5px 10px;
+   background:rgba(237,236,236,.7);
+    text-align:left;
+    margin-top:10px;
+    padding-left:25px;
+    cursor:pointer;
+}
+
+/***********上传附件样式***************/
+#aAddAttach{
+    display:block;
+    width:95px;
+    height:35px;
+    background-color:#00b7ee;
+    color:#fff;
+    border-radius:3px;
+    text-decoration:none;
+    text-align:center;
+    line-height:35px;
+    font-size:15px;
+    margin-bottom:20px;
+}
+
+.upfun_btn input{
+    float:right;
+    margin-right:15px;
+    /*background-color:#00b7ee;*/
+    /*border:none;*/
+    /*color:#fff;*/
+    /*border-radius:3px;*/
+    color:#6e6e6e;
+    cursor:pointer;
+    width:80px !important;
+}
+
+.up_btn{
+    color:#6e6e6e;
+    width:510px !important;
+}
+
+.middle_btn{
+    display:inline-block;
+    width:80px;
+    height:28px;
+    line-height:28px;
+    background-color:#a9c8d9;
+    color:#fff;
+    border-radius:3px;
+    text-align:center;
+    margin-left:5px;
+    cursor:pointer;
+}
+
+.middle_btn:hover{
+    color:#fff;
+    text-decoration:none;
+}
+
+.w_content,.d_content{
+    display:none;
+}
+
+.pro_tb td:first-child{
+    width:80px;
+}
+
+.pro_tb td[colspan="2"]{
+    padding-left:80px;
+}
+
+.sma_add{
+    margin-left:0 !important;
+}
+
+
+.case_form4 table td select{
+    height:25px;
+}
+.case_form1 table td i{
+    display:inline-block;
+    width:70px;
+    height:22px;
+    margin-right:10px;
+    margin-top:10px;
+    background-color:#a9c8d9;
+    position:relative;
+    cursor:pointer;
+    border-radius:3px;
+    color:#fff;
+    font-style:normal;
+    text-align:center;
+}
+.cl_lists{
+    list-style-type:none;
+}
+
+.cl_lists li{
+    padding:0 0 15px 0;
+    cursor:pointer;
+    height:36px;
+    white-space:nowrap;
+    width:720px;
+}
+
+.cl_lists li span{
+    float:right;
+}
+
+.cl_lists li:before{
+    content:counter(big);
+    padding-right:10px;
+}
+
+.cl_lists li{
+    counter-increment:big;
+}
+.case_form5 tr:nth-child(3) td p{
+    padding-left:80px;
+}
+.case_exp td div{
+    width:720px;
+    border:1px solid #ccc;
+}
+
+/* .case_exp td div span{
+    display:block;
+    padding:10px 5px;
+}
+
+.case_exp td p span:before{
+    content:counter(count);
+    padding-right:10px;
+}
+
+.case_exp td p span{
+    counter-increment:count;
+}
+ */
+ .counsel_list span{
+    margin-right:35px;
+}
+
+.counsel_list span b{
+    display:inline-block;
+    width:15px;
+    height:15px;
+    border:1px solid #cce;
+    line-height:9px;
+    text-align:center;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:-2px;
+    vertical-align: middle;
+    margin-left:10px;
+    color:#ccc;
+}
+
+.counsel_list span b:hover{
+    background-color:#fff;
+    color:#6e6e6e;
+}
+.case_form4 table td input{
+    width:140px !important;
+    height:25px;
+    margin-right:5px;
+    text-align:center;}
+
+.case_form4 table td select{
+    width:140px !important;
+    height:25px;}
+
+.case_form4 table td input[type="date"]{
+    width:140px !important;
+}
+
+.case_form4_btn{
+    margin-bottom:20px;
+    padding-bottom: 20px !important;
+}
+
+.deadline{
+    width:160px !important;
+}
+
+.case_form5 tr td:first-child,.case_form5 tr td:nth-child(3){
+    text-align:right;
+    padding-right:15px;
+}
+
+.tab_toggle{
+    background-color:#f7f9fc;
+    border:1px solid #ccc;
+    padding:20px 20px;
+    width: 80%;
+}
+
+.tab_toggle dl{
+    background-color:#f6f5f5;
+}
+
+.tab_toggle dl dt{
+    height:40px;
+    line-height:40px;
+    position:relative;
+}
+
+.tab_toggle dl dt span{
+    margin-right:30px;
+}
+
+.tab_toggle dl dt b{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    background:url('../images/s_a_icon.png') no-repeat;
+    position:absolute;
+    right:20px;
+    bottom:-5px;
+    cursor:pointer;
+}
+
+.tab_toggle dl dd{
+    padding:15px 0;
+    display:none;
+}
+
+.case_form5 textarea{
+    width:80%;
+}

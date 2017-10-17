@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<#include "../include/mobile_resource.html">
+<body>
+    <header class="mobile_header" style="position:fixed">
+        <a href="javascript:window.history.back()"> < </a>
+        <h3>待办事项</h3>
+    </header>
+    <div class="mobile_comment_container" style="margin-top:5rem">
+        <div class="progress_list">
+            <h3>进度列表</h3>
+            <div class="progress_list_content">
+
+                <#if (processType.lawProcessTypes?size>0)>
+                        <#list processType.lawProcessTypes as item>
+                            <#if item.order == 1>
+                                <span class="part"><span class="part_span nopass" onclick="fun_click(${item.order!''},'${.now}',${item.id!''})">${item.name!''}</span><i> ${.now} </i></span>
+                                <#else>
+                                    <span class="part"><span class="part_span">${item.name!''}</span><i> 2017.08.17 09:12:56</i></span>
+                            </#if>
+
+                        </#list>
+                </#if>
+                    <!--<span class="part"><span class="part_span pass"  style="background-color: #b2e5f9;">出发</span><i style="display: block"> 2017.08.17 09:12:56</i></span>-->
+                    <!--<span class="part"><span class="part_span nopass">到达地点</span><i> 2017.08.17 09:12:56</i></span>-->
+                    <!--<span class="part"><span class="part_span">约谈</span><i> 2017.08.17 09:12:56</i></span>-->
+                    <!--<span class="part"><span class="part_span">回程</span><i> 2017.08.17 09:12:56</i></span>-->
+                    <!--<span class="part"><span class="part_span">结束</span><i> 2017.08.17 09:12:56</i></span>-->
+            </div>
+        </div>
+        <form action="">
+            <input type="hidden" id="order" name="order">
+            <input type="hidden" id="time" name="time">
+            <input type="hidden" id="lptype" name="lptype">
+            <input type="hidden" value="<#if lpId??>${lpId!''}</#if>" id="lpId">
+            <input type="hidden" value="<#if processType??>${processType.id!''}</#if>" id="ttttid">
+            <textarea class="enter_box" name="content" id="content" placeholder="工作内容..." ></textarea>
+            <a href="javascript:void(0)" class="comment_save">保 存</a>
+            <a href="javascript:alert('暂时无法提交')" class="comment_submit">提 交</a>
+        </form>
+    </div>
+
+    <script>
+        $('.nopass').bind('click',function(){
+            if($(this).siblings('i').is(":hidden")) {
+                $(this).siblings('i').css("display", "block");
+                $(this).css("backgroundColor", "#b2e5f9");
+                $(this).addClass('pass');
+                $(this).removeClass('nopass');
+                $(this).parent('.part').next().children('.part_span').addClass('nopass');
+            }else{
+                $(this).siblings('i').css("display","none");
+                $(this).css("backgroundColor","#e7f6fc");
+                $(this).removeClass('pass');
+                $(this).addClass('nopass');
+                $(this).parent('.part').next().children('.part_span').removeClass('nopass');
+                $('#order').val('');
+                $('#time').val('');
+                $('#lptype').val('');
+            }
+        })
+
+        $('.comment_save').click(function(){
+            var order = $('#order').val();
+            var time = $('#time').val();
+            var lptype = $('#lptype').val();
+            var content = $('#content').val();
+            var lpId = $('#lpId').val();
+            if(order == '' || time =='' || lptype == ''){
+                alert("请选择工作进度");
+                return false;
+            }
+            if(content == ''){
+                alert("请填写工作内容");
+                return false;
+            }
+            $.ajax({
+                type : 'POST',
+                url : "/mobile/todo/saveTodoStartWork.html",
+                dataType : 'json',
+                data: {"order":order,"time":time,"lptypeId":lptype,"content":content,"lpId":lpId},
+                cache : false,
+                error : function(XMLHttpRequest, textStatus, errorThrown){
+                    alert("对不起出错了");
+                },
+                success : function(date) {
+                    var code = date.code;
+                    var msg = date.msg;
+                    if(code == 1){
+                        alert(msg);
+                    }else{
+                        alert("保存成功");
+                        var ttttid = $('#ttttid').val();
+                        url = "/mobile/todo/editTodoListDetail.html?typeId="+ttttid+"&lpId="+lpId+"&lpcId="+date.lpcId;
+                        window.location.href=url;
+                    }
+                }
+            });
+        });
+
+        $('.part:even').css('float','left');
+        $('.part:even').append('<b style=" width:15%;height:2.5rem;background:url(${webroot}/theme_rx/mobile/images/point_arrow_icon.png) no-repeat;background-size:100% 100%;position:absolute;right:-30%;top:10%;"></b>');
+        $('.part:odd').css({float:"right",marginRight:"2px"});
+        $('.part:last').children('b').remove();
+    </script>
+    <script>
+     function  fun_click(order,time,lptype) {
+         $('#order').val(order);
+         $('#time').val(time);
+         $('#lptype').val(lptype);
+     }
+    </script>
+</body>
+</html>

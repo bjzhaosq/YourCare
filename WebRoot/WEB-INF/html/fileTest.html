@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<#include "include/resource.html">
+</head>
+<body>
+
+    <div class="main_content_box">
+        <!-- <h3 class="property_title">权限管理</h3> -->
+        <div class="cm_main property_m" style="display:block;">
+            <div class="cm_main_top cm_main_top3">
+                <span>新增权限</span>
+            </div>
+            <div class="dwidth">
+                <form id="form" action="/file/saveImage.html" enctype="multipart/form-data" method="post" class="property_form">
+                    <table class="p_newly_tb">
+                        <tr>
+                            <td>文件</td>
+                            <td><input name="file" id="image" type="file"></td>
+                        </tr>
+                         <tr>
+                            <td>文件</td>
+                            <td><input name="file" id="image" type="file"></td>
+                        </tr>
+                         <tr>
+                            <td>文件</td>
+                            <td><input name="file" id="image" type="file"></td>
+                        </tr>
+                         <tr>
+                            <td>文件</td>
+                            <td><input name="file" id="image" type="file"></td>
+                       <!--  <tr>
+                            <td>NID</td>
+                            <td><input name="" id="nid" type="text" required="true" maxlength="50"></td>
+                        </tr>
+                        <tr>
+                            <td>备 注</td>
+                            <td><textarea name="powerList.remark" required="true" maxlength="150" id="remark" cols="105" rows="4" style="resize:none;"></textarea></td>
+                        </tr> -->
+                        <tr>
+                            <td></td>
+                            <td><sub class="big_btn" onclick="fun_save()">保 存</span></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.main_content_box').insertAfter($('.main_content_top'));
+
+            $('#a4').css("background","rgba(64,123,167,.9)");
+            var txt=$('#a4').html();
+            var bg=$('#a4 i').css('backgroundImage');
+            $('.main_content_top h3').html(txt);
+            $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+        });
+        
+    </script>
+
+	<script type="text/javascript">
+	function fun_save(){
+		
+		$('#form').submit();
+	}
+	</script>
+</body>
+</html>

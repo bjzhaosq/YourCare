@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>登录页</title>
+    <link href="${webroot}/theme_rx/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="${webroot}/theme_rx/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="${webroot}/theme_rx/css/law_login.css">
+    <script src="${webroot}/theme_rx/js/jquery-1.11.3.js"></script>
+    <script src="${webroot}/theme_rx/js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+</head>
+<body>
+    <div class="login_container">
+        <div class="login_box">
+            <p class="login_img"></p>
+            <div class="login_content">
+                <h3 class="login_title">欢迎登录xx律师管理系统</h3>
+                <form action="">
+                    <p>
+                    	    登录 <input name="username" id="username" type="text">
+                    </p>
+                    <p class="pwd_box">
+                   		     密码 <input name="password" id="password" type="password"><span></span>
+                    </p>
+                    <input type="button" value="立即登录" onclick="login()" class="login_btn">
+                </form>
+                <!--<div class="btn_box">-->
+                    <!--<a href="law_findPwd.html" class="lose_pwd">忘记密码?</a><span style="color:#b9d9ed;font-size:18px;padding:0 10px;">|</span><a href="law_register.html" class="now_login">立即注册</a>-->
+                <!--</div>-->
+    </div>
+
+    <script>
+        var bh=$(window).height();
+        $('.login_container').height(bh);
+        
+        function login(){
+        	var username = $("#username").val();
+        	var password = $("#password").val();
+        	if(username == ''||password == ''){
+        		alert("账号密码不可以为空");
+        	}else{
+        		$.ajax({
+					type : 'POST',
+					url : "/login/goLogin.html",
+					data :"username="+username+"&password="+password,
+					dataType : 'json',
+					cache : false,
+					error : function(XMLHttpRequest, textStatus, errorThrown){
+								alert("登陆失败，联系管理员");
+							},
+					success : function(date) {
+						var code = date.code;
+						if(code == 1){
+							alert(date.msg);
+						}else{
+							window.location.href = "/index.html";
+						}
+					}
+				});
+        	}
+        }
+        
+        document.onkeydown=keyListener;
+        function keyListener(e){
+            e = e ? e : event;// 兼容FF
+            if(e.keyCode == 13){
+            	login();
+            }
+        }
+    </script>
+</body>
+</html>

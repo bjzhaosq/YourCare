@@ -1,0 +1,27 @@
+<div class="tip-browser" style="display: none;">
+	<div class="wrapper">
+		<!--<img src="${theme_dir}/media/images/logo.jpg" class="logo">-->
+		<div class="headline">您的IE浏览器版本太低了！</div>
+		<div class="desc">为了得到我们网站良好的用户体验，我们建议您升级到IE9以上版本的浏览器；<br>
+			如果您的电脑是Windows Xp的操作系统，请在下面的列表中选择一个主流的web浏览器。
+		</div>
+		<ul class="cf">
+			<li class="item1"><a href="http://www.google.cn/chrome/" target="_blank"></a></li>
+			<li class="item2"><a href="http://www.firefox.com.cn/download/" target="_blank"></a></li>
+			<li class="item3"><a href="http://www.microsoft.com/zh-cn/download/internet-explorer-9-details.aspx" target="_blank"></a></li>
+			<li class="item4"><a href="http://se.360.cn/index_main.html" target="_blank"></a></li>
+			<li class="item5"><a href="http://liulanqi.baidu.com/" target="_blank"></a></li>
+			<li class="item6"><a href="http://ie.sogou.com/" target="_blank"></a></li>
+		</ul>
+	</div>
+</div>
+<script type="text/javascript">
+	if($.browser.version == '6.0' || $.browser.version == '7.0') {
+		$('.tip-browser').prependTo('body').show();
+		$('html').css({overflow:'hidden'});
+        $('body').prepend($('.tip-browser'));
+        $('.tip-browser').css({height: $(window).height()});
+	}else {
+		$('.tip-browser').remove();
+	}
+</script>

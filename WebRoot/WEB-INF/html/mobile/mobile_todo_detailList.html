@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<#include "../include/mobile_resource.html">
+
+<body style="background-color:#f0eff4;">
+    <header style="position:fixed" class="mobile_header" >
+    <a href="javascript:window.history.back()"> < </a>
+        <h3 >待办事项</h3>
+    </header>
+    <div class="mobile_todo_container" style="margin-top:5rem" id="mobile_todo_container">
+        <#if list??>
+        <#list list as item>
+        <div class="todo_item" id="todo_item">
+            <h3>${item.name!"-"}</h3>
+            <span>${item.deadline!"-"}</span>
+            <dl>
+                <dd>${item.processType.name!"-"}</dd>
+            </dl>
+            <#if item.status=='1'||item.status=='2'>
+            	<#if item.deadline?date gt .now?date>
+            		<a href="/mobile/todo/showTodoDetail.html?id=${item.id}" style="display:block;">立即处理</a>
+            	<#else>
+            		<a href="/mobile/todo/showDetailList.html?id=${item.id}" style="display:block;">查 看</a>
+            	</#if>
+            <#else>
+	            <a href="/mobile/todo/showDetailList.html?id=${item.id}" style="display:block;">查 看</a>
+            </#if>
+        </div>
+         </#list>
+        <#else></#if>
+        <input type="hidden" name="page" id="page" <#if pages??>value="${pages.currentPage}"<#else>value="0"</#if>>
+    </div>
+    <div class="mobile_todo_container">
+	    <span onclick="more()">
+	        <p class="load_more">
+	        	加载更多
+	        </p>
+	    </span>
+    </div>
+<script type="text/javascript">
+	function more(){
+		var page = $("#page").val();
+		 $.ajax({   
+             type: "POST",
+             url: "/mobile/todo/detailList.html",
+             data: {"page":page},
+             success: function(data) {
+           	  var $data = $(data) //将整个文档转化为jquery对象
+           	  var target_div = $data.find("#todo_item"); //获取到你要显示的div
+           	  $("#mobile_todo_container").append(target_div)	//替换表格
+           	  
+           		var p =	$data.find("#page").val();//替换当前页
+           		$("#page").val(p);
+             }  
+        }); 
+	}
+</script>
+</body>
+</html>

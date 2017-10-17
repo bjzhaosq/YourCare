@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<#include "include/resource.html">
+<body>
+<input id="checked" type="hidden" value="${checked}">
+       <div class="main_content_box">
+                <!-- <h3 class="property_title">权限分配</h3> -->
+                <div class="cm_main property_fp" style="display:block;">
+                    <div class="cm_main_top">
+                       	 权限分配角色 — ${name}
+                    </div>
+                    <div class="dwidth">
+                        <form action="/power/savePowerAndRole.html" method="post" id="form" class="property_fp_form">
+                        <input id="id" name="powerListId" type="hidden" value="${id}">
+                           <div class="check_box_group">
+                           
+                           <#if userTypeList??> 
+                           		<#list userTypeList as item>
+	                           		<p>
+	                                    <input type="checkbox" name="userTypeIds" value="${item.id!"-"}" id="${item.id!"-"}">  ${item.name!"-"}
+	                                </p>
+                           		</#list>
+								<#else>暂无角色
+							</#if>
+                            </div>
+                            <p class="property_fp_saveoff">
+                                <span style="margin-right:20px;" onclick="fun_save()">保存</span><a href="/power/showPower.html"><span style="margin-left:20px;">取消</span></a>
+                            </p>
+                        </form>
+                    </div>
+
+                </div>
+       </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#Pagination").pagination("15");
+        var checked = $('#checked').val();
+        if(checked != ''){
+        	 var arr = checked.split(",");
+             for(var k=1;k<arr.length;k++){
+             	$('#'+arr[k]).attr("checked",checked);
+             }
+        }
+       
+    });
+    
+    function fun_save(){
+    	$('#form').submit();
+    }
+</script>
+
+<script>
+    if($('.property_fp').is(":visible")){
+        $('h3').text('权限分配');
+    }
+</script>
+
+<script>
+      $(document).ready(function(){
+           $('.main_content_box').insertAfter($('.main_content_top'));
+
+          $('#a4').css("background","rgba(64,123,167,.9)");
+          var txt=$('#a4').html();
+          var bg=$('#a4 i').css('backgroundImage');
+          $('.main_content_top h3').html(txt);
+          $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+      });
+</script>
+
+</body>
+</html>

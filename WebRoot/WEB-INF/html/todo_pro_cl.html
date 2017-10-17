@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<#include "include/resource.html">
+<body>
+
+    <div class="main_content_box">
+                <div class="case case4" style="display:block;" >
+                    <div class="cm_main" style="display: block">
+                        <div class="cm_main_top">
+                            <span>案件办理-进度处理</span>
+                        </div>
+                        <div class="dwidth">
+                            <form action="/todo/saveTodo.html" id="form" method="post" class="case_form5">
+                                <input type="hidden" name="id" value="<#if lawProcess??>${lawProcess.id!''}</#if>">
+
+                                <table>
+                                    <tr>
+                                        <td style="width:80px;">案件编号:</td>
+                                        <td><#if lawProcess??>${lawProcess.lawCaseId.caseNumber!''}</#if></td>
+                                        <td style="width:80px;">工作名称:</td>
+                                        <td><#if lawProcess??>${lawProcess.name!''}</#if></td>
+                                    </tr>
+                                    <tr>
+                                        <td>工作类型:</td>
+                                        <td><#if lawProcess??>${lawProcess.processType.name!''}</#if></td>
+                                        <td>截止时间:</td>
+                                        <td><#if lawProcess??>${lawProcess.deadline!''}</#if></td>
+                                    </tr>
+
+                                                <#if (lawProcess.lawProcessContexts?size>0)>
+                                                    <tr>
+                                                        <td style="vertical-align:top;">工作列表&nbsp;</td>
+                                                        <td colspan="3">
+                                                            <div class="tab_toggle">
+                                                            <#list lawProcess.lawProcessContexts as item>
+                                                                <dl>
+                                                                    <dt><span>进度${item_index+1!"-"}</span><span>时间:${item.addtime!''}</span><b></b></dt>
+                                                                    <dd>${item.context!''}</dd>
+                                                                </dl>
+                                                            </#list>
+                                                            </div>
+                                                        </td>
+                                                    </tr>
+                                                </#if>
+
+                                    <tr>
+                                        <td style="vertical-align:top;">工作内容&nbsp;</td>
+                                        <td colspan="3" >
+                                            <textarea name="context" id="context" style="resize:none;" cols="98" rows="4"></textarea>
+                                        </td>
+                                    </tr>
+                                </table>
+
+                                <p class="case_form5_btn"><span onclick="fun_save()" style="margin-right:20px;">提交</span><a href="/todo/showTodo.html"><span style="margin-left:20px;">取消</span></a></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.main_content_box').insertAfter($('.main_content_top'));
+
+            $('#a8').css("background","rgba(64,123,167,.9)");
+            var txt=$('#a8').html();
+            var bg=$('#a8 i').css('backgroundImage');
+            $('.main_content_top h3').html(txt);
+            $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+        });
+    </script>
+
+    <script type="text/javascript">
+        function fun_save(){
+            var context = $('#context').val();
+            if(context == ''){
+                alert("计时步骤不能为空！");
+                return;
+            }
+            $('#form').submit();
+        }
+    </script>
+
+    <script>
+        $('.tab_toggle dl dt').click(function(){
+            if($(this).next('dd').is(":hidden")){
+                $(this).next('dd').slideDown();
+                $(this).css("borderBottom","1px dotted #ccc");
+                $(this).children('b').css("transform","rotate(-90deg)");
+            }else{
+                $(this).next('dd').slideUp();
+                $(this).css("borderBottom","none");
+                $(this).children('b').css("transform","rotate(0)");
+            }
+        })
+    </script>
+</body>
+</html>

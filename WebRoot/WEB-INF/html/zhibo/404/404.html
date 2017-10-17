@@ -1,0 +1,17 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<#include "../include/resource.html">
+<body>
+<div class="fullScreen" id="fullScreen">
+    <!-- <a href="#" class="logo"><img src="images/homepage-logo.png"></a> -->
+    <img class="rotating" src="${webroot}/theme_rx/zhibo/images/spaceman.svg" />
+    <div class="pagenotfound-text">
+        <h1><#if msg??>${msg}<#else>槽糕，在太空迷路了</#if></h1>
+        <h2><a href="/zhibo/index.html">Go back to the homepage</a></h2>
+    </div>
+    <canvas id="canvas2d" width="1920" height="1080"></canvas>
+</div>
+<script type="text/javascript" src="${webroot}/theme_rx/zhibo/js/jq22.js"></script>
+<link type="text/css"  href="${webroot}/theme_rx/zhibo/css/jq22.css" rel="stylesheet" />
+</body>
+</html>

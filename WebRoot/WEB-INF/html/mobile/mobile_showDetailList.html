@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<#include "../include/mobile_resource.html">
+<body style="background-color:#f0eff4;">
+    <header class="mobile_header" style="position:fixed">
+    <a href="javascript:window.history.back()"> < </a>
+        <h3>待办事项_查看</h3>
+    </header>
+    <div class="mobile_workList_container" style="margin-top:5rem">
+        <div class="workList_top">
+            <h2 class="workList_title"><#if lawProcess??>${lawProcess.name!''}</#if></h2>
+            <p><span>案件编号</span><b><#if lawProcess??>${lawProcess.lawCaseId.caseNumber!''}</#if></b></p>
+            <p><span>类型</span><b><#if lawProcess??>${lawProcess.processType.name!''}</#if></b></p>
+            <p><span>截止时间</span><b><#if lawProcess??>${lawProcess.deadline!''}</#if></b></p>
+        </div>
+    </div>
+    <div class="mobile_workList_container" style="margin-top:1.5rem;overflow: hidden">
+        <div class="workList_content">
+
+                <#if (lawProcess.lawProcessContexts?size>0)>
+                    <h2 class="workList_title">工作列表</h2>
+                    <div class="workList_toggle">
+                <#list lawProcess.lawProcessContexts as item>
+                    <dl>
+                        <dt>
+                            <span>进度${item_index+1!"-"}</span>
+                            <span>${item.addtime!''}</span>
+                                <#if item.status == '1'>
+                            		<a href="/mobile/todo/showComment.html?id=${item.id}" style="display:inline-block;">未完成
+                            		</a>
+                            	<#elseif item.status == '2'>
+                            		<a href="/mobile/todo/showComment.html?id=${item.id}" style="display:inline-block;">已完成
+                            		</a>
+                            	</#if>
+                        </dt>
+                    </dl>
+                </#list>
+                </#if>
+            </div>
+            <!-- 
+		        <div id="showButton">
+		            <a href="/mobile/todo/newlyTodoDetail.html?typeId=<#if lawProcess??>${lawProcess.processType.id!''}</#if>" class="workList_save">新 增</a>
+		            <a href="" class="workList_submit">提 交</a>
+	            </div> 
+	       -->
+        </div>
+    </div>
+</body>
+</html>

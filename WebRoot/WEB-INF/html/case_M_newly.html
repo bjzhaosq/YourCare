@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<#include "include/resource.html">
+<body>
+
+    <div class="main_content_box">
+        <div class="case case1" style="display:block;"   >
+            <h3 class="case_title">案件新增</h3>
+            <div class="cm_main1">
+                <div class="cm_main_top">
+                    <span>基本信息</span>
+                    <b>必填信息</b>
+                </div>
+                <div class="dwidth">
+                    <form id="case_form" action="/case/saveCase.html" enctype="multipart/form-data" method="post" class="case_form1">
+                    
+                       <table>
+                       		<input type="hidden" id="caseId" name="caseId" <#if lawCase??>value="${lawCase.id!''}"</#if>>
+                            <tr>
+                                <td>案件编号</td>
+                                <td><input type="text" name="caseNumber"  maxlength="30" required="true" <#if lawCase??>value="${lawCase.caseNumber!''}"</#if>><span>●</span></td>
+                                <td>案件名称</td>
+                                <td><input type="text" name="caseName" id="caseName" maxlength="100" required="true" <#if lawCase??>value="${lawCase.caseName!''}"</#if>><span>●</span></td>
+                            </tr>
+                            <tr>
+                                <td>案件类型</td>
+                                <td>
+                                	<#if typeList??>
+	                                        <select name="statusOne" id="statusOne" >
+		                                        <option value=""></option>
+	                                        	<#list typeList as type>
+		                                            <#if type.pid==0>
+		                                            	<option value="${type.name}"  <#if lawCase??><#if lawCase.lawTypeId.statusOne == type.name>selected="selected"</#if></#if>>${type.name!''}</option>
+		                                            </#if>
+	                                            </#list>
+	                                        </select>
+                                            <select name="statusTwo" id="statusTwo" required="true">
+                                                <option value=""></option>
+                                                <#list typeList as type>
+		                                            <#if type.pid!=0>
+		                                            	<option value="${type.name}"  <#if lawCase??><#if lawCase.lawTypeId.statusTwo == type.name>selected="selected"</#if></#if>>${type.name!''}</option>
+		                                            </#if>
+	                                            </#list>
+                                            </select>
+                                            <#else></#if>
+                                          <span>●</span>
+                                      </td>
+                                <td>委托人</td>
+                                <td><input type="text" name="customer" id="customer"  readonly unselectable="on" <#if lawCase??><#if lawCase.customerId??>value="${lawCase.customerId.username!''}"</#if></#if>>
+                                <input type="hidden" id="customerId" name="customerId" value="">
+                                <span class="case_search">查找</span></td>
+                            </tr>
+                            <tr>
+                                <td>案件内容</td>
+                                <td colspan="3">
+                                 <div style="width:720px;">
+                               		 <#include "common/ueditor.html"> 
+                               		 <#if lawCase??&&lawCase.content??>
+							   	 	 		<@showUeditor width=720 heigth=100 id="content" name="content"  content="${lawCase.content}" />
+							   	 	 <#else>
+							   	 	 	<@showUeditor width=720 heigth=100 id="content" name="content"  content="" />
+							   	 	 </#if>
+							   	 	 
+                                </div> 
+                                </td>
+                            </tr>
+                            <tr>
+                                    <#if lawAccessory??>
+		                                <td style="vertical-align: top;">附件内容</td>
+		                                <td colspan="3">
+		                                    <ul class="cl_lists">
+									            <#list lawAccessory as la>
+			                                        <li>${la.name!''}<span class="small_btn delli" onclick="delLi(event,${la.id})">删除</span>
+			                                        <span class="small_btn" onclick="previews('${la.remark}','${la.url}')">预览</span></li>
+									            </#list>
+		                                    </ul>
+		                                </td>
+						            <#else></#if>
+                            </tr>
+                            <tr>
+                                <td style="vertical-align: top;">附件材料</td>
+                                <td colspan="3">
+                                    <a href="javascript:fAddAttach();" id="aAddAttach" name="aAddAttach">添加文件</a>
+                                    <div id="dvReadAttach" style="display:none"></div>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td colspan="4">
+	                                <span class="big_btn" id="save">保存</span>
+	                                <a href="/case/case_M.html"><span class="big_btn">取消</span></a>
+                                </td>
+                            </tr>
+                            
+                        </table>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="pop_box">
+        <div class="pop_content">
+            <i class="close">x</i>
+            <p>
+	            <input type="text" placeholder="请输入名称" id="username" name="username">
+	            <span class="small_btn" id="search">搜索</span>
+            </p>
+            <div class="name_lists" id="name_lists">
+	            <#if customer??>
+		            <#list customer as cus>
+		                <span onclick="choice('${cus.username}','${cus.id}')" >${cus.username}</span>
+		            </#list>
+	            <#else></#if>
+            </div>
+        </div>
+    </div>
+
+<script type="text/javascript">
+		$("#save").click(function(){
+			$("#case_form").submit();
+		}); 
+</script>
+<script type="text/javascript">
+	function choice(name,id){
+		$("#customer").val(name);
+		$("#customerId").val(id);
+		$('.pop_box').hide();
+	}
+</script>
+<script type="text/javascript">
+	function previews(name,url){
+//		if(name=='doc'||name=='docx'||name=='xls'||name=='xlsx'||name=='ppt'||name=='pptx'){
+//			window.open("https://view.officeapps.live.com/op/view.aspx?src=${webroot}"+url);
+//		}else{
+//			window.open("${weburl}"+url);
+//		}
+        window.open("/"+url);
+	}
+</script>
+<script type="text/javascript">
+		$("#search").click(function(){
+			//alert("搜索方法")
+			var name = $("#username").val();
+			 $.ajax({   
+	              type: "POST",  
+	              url: "/case/findCustomer.html",   
+	              data: {"username":name},
+	              dataType: "json",
+	              success: function(data) {
+	            	  $("#name_lists").empty();
+	            	  var date=eval(data);
+	            	  var option = ""; 
+	            	  if(date != null && date!='' && date!="undefined"){
+			            	for(var i=0;i<date.customer.length;i++){
+			            		var username = data.customer[i]['username'];
+			            		var id = data.customer[i]['id'];
+			            		option += "<span onclick=\"choice('"+username+"','"+id+"'\)\">" +username+ "</span>";
+			            	}
+			            $("#name_lists").append(option); 
+			        	}
+	              }   
+	         }); 
+		}); 
+</script>
+<script>
+		$.validator.setDefaults({
+		    submitHandler: function(form) {
+		      //alert("提交事件!");
+		      form.submit(); 
+		    }
+		});
+		$().ready(function() {
+			// 提交时验证表单
+			var validator = $("#case_form").validate({
+				messages: {
+					caseNumber: {
+						required:"必填"
+					},
+					caseName: {
+						required: "必填"
+					},
+					statusTwo: {
+						required: "必选"
+					}
+				}
+			});
+		});
+</script>
+<style>
+	.error{
+		color:red;
+	}
+</style>
+    <script>
+        $('.pop_box').height($(window).height());
+
+        $('.case_search').click(function(){
+            $('.pop_box').show();
+        })
+
+        $('.close').click(function(){
+            $('.pop_box').hide();
+        })
+        function delLi(event,lawAccessoryId){
+            var ev=event.target;
+            $.ajax({   
+	              type: "POST",  
+	              url: "/case/delLawAccessory.html",   
+	              data: {"lawAccessoryId":lawAccessoryId},
+	              success: function(data) {
+		            $(ev).parent('li').remove();
+	              }  
+	         }); 
+        }
+    </script>
+
+    <script>
+        $(document).ready(function(){
+            $('.main_content_box').insertAfter($('.main_content_top'));
+            $('.pop_box').insertAfter($('.law_container'));
+
+            $('#a5').css("background","rgba(64,123,167,.9)");
+            var txt=$('#a5').html();
+            var bg=$('#a5 i').css('backgroundImage');
+            $('.main_content_top h3').html(txt);
+            $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+        });
+    </script>
+
+<!--     <script>
+        var quill = new Quill('#editor-container', {
+            modules: {
+                formula: true,
+                syntax: true,
+                toolbar: '#toolbar-container'
+            },
+            placeholder: 'Compose an epic...',
+            theme: 'snow'
+        });
+    </script> -->
+    <script type="text/javascript">
+    	$(function(){
+    		console.log("你好啊小朋友");
+    	})
+    </script>
+   
+</body>
+</html>

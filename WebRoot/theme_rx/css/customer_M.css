@@ -1,0 +1,199 @@
+.cm_list a{
+    font-size:15px;
+    color:#00639e;
+    padding:0 12px;
+}
+
+.cm_main{
+    width:100%;
+    margin-top:10px;
+    background-color:#e9eef6;
+    padding-bottom:60px;
+    display:none;
+}
+
+.cm_main_top{
+    width:100%;
+    height:45px;
+    background-color:#cfe2ed;
+}
+
+.cm_main_topLeft{
+    line-height:45px;
+    float:left;
+}
+
+.cm_main_topLeft a,.cm_main_topLeft span,.cm_main_topRight a{
+    color:#00639e;
+    font-size:15px;
+}
+
+.cm_main_topLeft span{
+    padding:0 20px;
+}
+
+.cm_main_topRight{
+    float:right;
+    line-height:45px;
+}
+
+.cm_main_topRight a{
+    padding:0 15px;
+}
+
+.cm_main_top3 span{
+    float:left;
+    line-height:45px;
+    font-size:15px;
+    color:#6a6a6a;
+    padding-left:30px;
+}
+
+.cm_main_top3 b{
+    float:right;
+    line-height:45px;
+    color:#00639e;
+    font-size:15px;
+    font-weight:normal;
+    padding-right:40px;
+}
+
+.cm_main_top3 b:before{
+    content:'●';
+    color:#e60012;
+    padding-right:10px;
+}
+
+.dwidth{
+    width:1000px;
+    margin:0 auto;
+    margin-top:30px;
+}
+
+.curtomer_form,.curtomer_form table,.crm__newly_tb{
+    width:100%;
+}
+
+.curtomer_form table td{
+    font-size:15px;
+    color:#6a6a6a;
+    padding:5px 0;
+}
+
+.curtomer_form table td:first-child, .curtomer_form table td:nth-child(3){
+    width:80px;
+}
+
+.curtomer_form table td:nth-child(3){
+    text-align:right;
+    padding-right:25px;
+}
+
+.curtomer_form table td:nth-child(2) .curtomer_form table td:nth-child(4){
+    width:225px;
+}
+
+.curtomer_form table td:nth-child(4){
+    width:185px;
+}
+
+.curtomer_form input,.curtomer_form table td:nth-child(4) select{
+    width:150px;
+    height:22px;
+}
+
+.small_btn{
+    display:inline-block;
+    width:50px;
+    height:22px;
+    background-color:#a9c8d9;
+    color:#fff;
+    border-radius:3px;
+    text-align:center;
+    margin-left:15px;
+}
+
+.small_btn:hover{
+    color:#fff;
+    text-decoration:none;
+}
+
+.cm_table_list{
+    width:100%;
+    margin-top:50px;
+    border-collapse: separate !important;
+    border-spacing: 5px;
+}
+
+.cm_table_list td{
+    font-size:15px;
+    height:38px;
+    color:#6a6a6a;
+    text-align:center;
+    background-color:#cfe2ed
+}
+
+.cm_table_list tr:first-child td{
+    background-color:#bdd9e9;
+}
+
+.cm_table_list tr td:first-child,.crm__newly_tb tr td:first-child{
+    width:60px;
+}
+
+.cm_table_list tr td:nth-child(2){
+      width:100px;
+}
+
+.cm_table_list tr td:nth-child(3){
+    width:60px !important;
+}
+
+.cm_table_list tr td:nth-child(4){
+    width:100px;
+}
+
+.cm_table_list tr td:last-child{
+    width:90px;
+}
+
+
+.cm_table_list tr td a{
+    margin:5px 10px;
+}
+
+.crm__newly_tb tr td:first-child{
+    text-align:right;
+}
+
+.crm__newly_tb tr td{
+    padding:11px 0;
+}
+
+.crm__newly_tb input,.crm__newly_tb select{
+    width:150px;
+    height:22px;
+    margin-left:15px;
+}
+
+.big_btn{
+    display:inline-block;
+    width:150px;
+    height:30px;
+    background-color:#d2d2d2;
+    color:#00639e;
+    font-size:16px;
+    text-align:center;
+    line-height:30px;
+    border-radius:5px;
+    margin-left:100px;
+    cursor:pointer;
+}
+
+.big_btn:hover{
+   background-color:#009bdb;
+    color:#fff;
+}
+
+
+

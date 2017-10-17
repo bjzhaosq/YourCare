@@ -1,0 +1,35 @@
+<#import "pagestyle1.html" as pagestyle1> 
+<#import "pagestyle2.html" as pagestyle2>  
+<#import "pagestyle3.html" as pagestyle3>
+<#macro pagination page url map style>
+
+<#assign pageurl=request.getContextPath()+url>
+<#assign param="" >
+	<#list map?keys as key>
+	    <#if map.get(key)??>
+	    	<#assign value=map.get(key) >
+	    	 <#if value?exists>
+		   		<#if key?ends_with("_Arr")>
+		   			<#assign newkey=key?replace("_Arr","") >
+			    	<#assign param=param+"&"+newkey+"="+value[0] >
+				<#else>
+					<#assign param=param+"&"+key+"="+value >
+				</#if>
+			</#if>
+	    </#if>
+	</#list>
+<#if pageurl?index_of("?") lt 0>
+		<#assign pageurl=pageurl+"?">
+	<#else>
+		<#assign pageurl=pageurl+"&">
+	</#if>
+	<#if style=="style1">
+		 <@pagestyle1.pagestyle1 page=page url=pageurl param=param />
+	<#elseif style=="style2" >
+		 <@pagestyle2.pagestyle2 page=page url=pageurl param=param />
+	<#elseif style=="style3" >
+		<@pagestyle3.pagestyle3 page=page url=pageurl param=param />
+	<#else>
+</#if>
+
+</#macro>

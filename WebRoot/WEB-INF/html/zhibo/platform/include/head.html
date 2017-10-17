@@ -1,0 +1,48 @@
+<header class="header white-bg">
+    <div class="sidebar-toggle-box">
+        <div data-original-title="隐藏菜单(你点点试试)" data-placement="right" class="icon-reorder tooltips"></div>
+    </div>
+    <a href="blank.html#" class="logo">Ycare<span style="font-size:14px">&nbsp;&nbsp;斗鱼</span></a>
+
+    <div class="top-nav ">
+        <ul class="nav pull-right top-menu">
+
+            <li class="dropdown">
+                <a data-toggle="dropdown" class="dropdown-toggle" href="blank.html#">
+                    <img alt="" src="${webroot}/theme_rx/zhibo/platform/img/yc1.jpg">
+                    <span class="username">Shiqi Zhao</span>
+                    <b class="caret"></b>
+                </a>
+                <ul class="dropdown-menu extended logout">
+                    <div class="log-arrow-up"></div>
+                    <li><a href="blank.html#"><i class=" icon-suitcase"></i>Profile</a></li>
+                    <li><a href="blank.html#"><i class="icon-cog"></i> Settings</a></li>
+                    <li><a href="blank.html#"><i class="icon-bell-alt"></i> Notification</a></li>
+                    <li><a href="login.html"><i class="icon-key"></i> Log Out</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</header>
+<aside>
+    <div id="sidebar" class="nav-collapse ">
+        <ul class="sidebar-menu">
+            <#if (dlist?size>0)>
+                <#list dlist as item>
+                        <li id="${item.nid!''}" class>
+                        <a class="" href="/platform/rooms.html?src=${item.url!''}">
+                            <i class="icon-gamepad"></i>
+                            <span>${item.name!''}</span>
+                        </a>
+                    </li>
+                </#list>
+            </#if>
+            <li class="active">
+                <a class="" href="#">
+                    <i class="icon-gamepad"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</aside>

@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<#include "include/resource.html">
+
+<body>
+
+      <div class="main_content_box">
+               <!--  <h3 class="lv_title">人员管理</h3> -->
+                <div class="cm_main basic_infor" style="display:block;">
+                    <div class="cm_main_top">人员管理-基本信息</div>
+                    <div class="dwidth">
+                        <form action="${webroot}/user/savelyLawer.html" method="post" class="lv_infor" id="form">
+                            <table>
+                            <input type= "hidden" id = "id" name = "user.id" value="<#if userInfo??>${userInfo.id!''}</#if>">
+                                <tr>
+                                    <td>姓名</td>
+                                    <td><input required="true" maxlength="30" name="user.username" id="username" <#if userInfo??>value="${userInfo.username!''}"</#if>></td>
+                                    <td>工号</td>
+                                    <td>
+                                    	<input required="true" maxlength="15" name="user.jobNumber" id="jobNumber"  <#if userInfo??>value="${userInfo.jobNumber!''}"</#if>>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>类型</td>
+                                    <td><select name="user.userTypeId.id" id="userType">
+                                        <#if userTypeList??>
+			                                    <#list userTypeList as item>
+			                                        <option value="${item.id}" <#if userInfo??><#if userInfo.userTypeId.id == item.id>selected="selected"</#if></#if>>${item.name}</option>
+			                                    </#list>
+                                   			<#else></#if>
+                                    </select></td>
+                                    <td>登录密码</td>
+                                    <td><input required="true" maxlength="50" name="user.password" id="password" type="password" <#if userInfo??>value="${userInfo.password!''}"</#if>></td>
+                                </tr>
+                                <tr>
+                                    <td>民族</td>
+                                    <td><input maxlength="10" name="user.nation" id="nation" type="text"  <#if userInfo??>value="${userInfo.nation!''}"</#if>></td>
+                                    <td>籍贯</td>
+                                    <td><input maxlength="150" name="user.nativePlace" id="nativePlace" type="text"  <#if userInfo??>value="${userInfo.nativePlace!''}"</#if>></td>
+                                </tr>
+                                <tr>
+                                    <td>性别</td>
+                                    <td>
+	                                    <input type="radio" name="user.sex" value="1" <#if userInfo??><#if userInfo.sex =='1'>checked="checked"</#if></#if>>男
+	                                    <input type="radio" name="user.sex" value="2" <#if userInfo??><#if userInfo.sex =='2'>checked="checked"</#if></#if>>女</td>
+                                    <td>联系电话</td>
+                                    <td><input required="true" isPhone="true" name="user.phone" id="phone" type="text"  <#if userInfo??>value="${userInfo.phone!''}"</#if>></td>
+                                </tr>
+                                <tr>
+                                    <td>学历</td>
+                                    <td>
+	                                    <select name="user.education" id="education">
+	                                        <option value="0" <#if userInfo??><#if userInfo.education == "0">selected="selected"</#if></#if>>无</option>
+	                                        <option value="1" <#if userInfo??><#if userInfo.education == "1">selected="selected"</#if></#if>>博士</option>
+	                                        <option value="2" <#if userInfo??><#if userInfo.education == "2">selected="selected"</#if></#if>>硕士</option>
+	                                        <option value="3" <#if userInfo??><#if userInfo.education == "3">selected="selected"</#if></#if>>研究生</option>
+	                                    </select>
+                                    </td>
+                                    <td>出生日期</td>
+                                    <td><!-- <input name="dateOfBirth" id="dateOfBirth" type="date"  >
+                                     --><input class="off_date Wdate" readonly unselectable="on" onClick=" WdatePicker({minDate:'0001-01-01 00:00:00'});" name="user.dateOfBirth" id="dateOfBirth" type="text" <#if userInfo??>value="${userInfo.dateOfBirth!''}"</#if>>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>政治面貌</td>
+                                    <td colspan="3"><input maxlength="20" name="user.political" id="political" type="text"  <#if userInfo??>value="${userInfo.political!''}"</#if>></td>
+                                </tr>
+                                <tr>
+                                    <td>住址</td>
+                                    <td colspan="3"><textarea maxlength="200" name="user.address" id="address" cols="105" rows="5" style="margin-left:10px;resize:none;"><#if userInfo??>${userInfo.address!''}</#if></textarea></td>
+                                </tr>
+                            </table>
+                            <p class="infor_saveoff">
+                                <span style="margin-right:20px;" id="save">保存</span>
+                                <a href="/user/showLawer.html"><span style="margin-left:20px;">取消</span></a>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+      </div>
+<script>
+
+		$.validator.setDefaults({
+		    submitHandler: function(form) {
+		      //alert("提交事件!");
+		      form.submit(); 
+		    }
+		
+		});
+		
+		$().ready(function() {
+			jQuery.validator.addMethod("isPhone", function(value,element) {
+				  var length = value.length;
+				  var mobile = /^1[3|4|5|7|8][0-9]{9}$/;
+				  var tel = /^\d{3,4}-?\d{7,9}$/;
+				  return this.optional(element) || (tel.test(value) || mobile.test(value));
+				}, "请正确填写您的联系电话");
+			
+			// 提交时验证表单
+			var validator = $("#form").validate({
+				messages: {
+					phone: {
+						required:"必填",
+						isPhone:"请正确填写您的联系电话"
+					},
+					jobNumber: {
+						required:"必填"
+					},
+					password: {
+						required:"必填"
+					},
+					username: {
+						required: "必填",
+					}
+				}
+			});
+		});
+</script>
+<style>
+	.error{
+		color:red;
+	}
+</style>
+
+<script type="text/javascript">
+	$("#save").click(function(){
+		$("#form").submit();
+	}); 
+</script>
+
+<script>
+    $('.lv_function_btn span').click(function(){
+        $('.lv_function_btn span:not(this)').css({backgroundColor:"#d2d2d2",color:"#00639e"});
+        $(this).css({backgroundColor:"#009bdb",color:"#fff"});
+    })
+</script>
+
+<script>
+      $(document).ready(function(){
+          $('.main_content_box').insertAfter($('.main_content_top'));
+
+          $('#a3').css("background","rgba(64,123,167,.9)");
+          var txt=$('#a3').html();
+          var bg=$('#a3 i').css('backgroundImage');
+          $('.main_content_top h3').html(txt);
+          $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+      });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <#include "include/resource.html">
+</head>
+<body>
+ <div class="main_content_box">
+    <!-- <div class="content-box"> -->
+        <div class="left-box">
+            <!--<i></i>-->
+            <dl>
+                <#if msg??>
+                    <dt>${msg}</dt>
+                    <#else>
+                        <dt>出错了，请联系管理员！</dt>
+                </#if>
+                <!--<dt>${msg}</dt>-->
+                <!--<dd>error page</dd>-->
+            </dl>
+            <span>接下来，你可以 <a href="javascript:;" onclick="history.back()">返回</a> 试试</span>
+        </div>
+        <!--<div class="right-box"></div>-->
+   <!--  </div> -->
+    </div>
+    <script>
+        var winH=$(window).height();
+        if(winH>667){
+            $('.content-box').css('marginTop','150px');
+        }
+    </script>
+</body>
+
+
+    <script>
+        $(document).ready(function(){
+            $('.main_content_box').insertAfter($('.main_content_top'));
+
+            $('#a4').css("background","rgba(64,123,167,.9)");
+            var txt=$('#a4').html();
+            var bg=$('#a4 i').css('backgroundImage');
+            $('.main_content_top h3').html(txt);
+            $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+        });
+        
+    </script>
+</html>

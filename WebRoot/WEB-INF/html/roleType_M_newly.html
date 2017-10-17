@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<#include "include/resource.html">
+<body>
+
+    <div class="main_content_box">
+        <!-- <h3 class="property_title">角色类型管理</h3> -->
+        <div class="cm_main property_m" style="display:block;">
+            <div class="cm_main_top cm_main_top3">
+                <span>新增角色类型</span>
+            </div>
+            <div class="dwidth">
+               <form id="form" action="/role/saveNewlyRole.html" method="post" class="property_form">
+                    <table class="p_newly_tb">
+                        <tr>
+                            <td>名 称</td>
+                            <td><input name="userType.name" id="name" type="text" required="true" maxlength="100"></td>
+                        </tr>
+                        <tr>
+                            <td>NID</td>
+                            <td><input name="userType.nid" id="nid" type="text" required="true" maxlength="50"></td>
+                        </tr>
+                        <tr>
+                            <td>备 注</td>
+                            <td><textarea name="userType.remark" id="remark" required="true" maxlength="150" cols="105" rows="4" style="resize:none;"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td><span class="big_btn" onclick="fun_save()">保 存</span><a href="/role/showRole.html"><span class="big_btn">取 消</span></a></td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.main_content_box').insertAfter($('.main_content_top'));
+
+            $('#a7').css("background","rgba(64,123,167,.9)");
+            var txt=$('#a7').html();
+            var bg=$('#a7 i').css('backgroundImage');
+            $('.main_content_top h3').html(txt);
+            $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+        });
+    </script>
+<script type="text/javascript">
+	function fun_save(){
+		var name = $("#name").val();;
+		var nid = $('#nid').val();
+		var remark = $('#remark').val();
+		if(name == ''){
+			alert("名称不可以为空");
+			return;
+		}
+			if(nid == ''){
+	   		alert("nid不可以为空");
+	   		return;
+	   	}
+		if(remark == ''){
+			alert("备注不可以为空");
+			return;
+		}
+		$('#form').submit();
+	}
+	</script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+    <package name="p2p-default" namespace="/" extends="struts-default">
+    	<result-types>  
+            <result-type name="ftl" class="com.lawer.freemarker.CustomFreemarkerResult" default="false"/>  
+        </result-types> 
+	    <interceptors>
+		 
+		    <interceptor name="redirectMessageInterceptor" class="com.lawer.web.interceptor.RedirectMessageInterceptor"></interceptor>
+		<!--     <interceptor name="sessiontimeout" class="com.lawer.web.interceptor.SessionInterceptor"></interceptor> -->
+            <interceptor name="manageAuth" class="com.lawer.web.interceptor.ManageAuthInterceptor"></interceptor>
+            <interceptor name="userLog" class="com.lawer.web.interceptor.UserLogInterceptor"></interceptor>
+            <interceptor name="paramFilter" class="com.lawer.web.interceptor.ParamFilterInterceptor"></interceptor>
+            <interceptor name="actionInterceptor" class="com.lawer.web.interceptor.ActionInterceptor"></interceptor>
+            <!-- 登录页面SQL注入修复 start -->
+			<interceptor name="login" class="com.lawer.web.interceptor.LoginInterceptor"></interceptor>
+			<!-- 登录页面SQL注入修复 end -->
+            
+            
+			<interceptor-stack name="mydefault">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="paramFilter"/>
+               <!--  <interceptor-ref name="sessiontimeout"/> -->
+                <interceptor-ref name="actionInterceptor" />
+            </interceptor-stack>
+            <interceptor-stack name="manageAuthStack">
+                <interceptor-ref name="defaultStack"/>
+                <interceptor-ref name="paramFilter"/>
+                <interceptor-ref name="manageAuth"/>
+                <interceptor-ref name="actionInterceptor" />
+            </interceptor-stack>
+            <interceptor-stack name="globalStack">
+			    <interceptor-ref name="defaultStack"></interceptor-ref>
+			    <interceptor-ref name="paramFilter"/>
+			    <interceptor-ref name="userLog"></interceptor-ref>
+			    <interceptor-ref name="redirectMessageInterceptor"/>
+			    <interceptor-ref name="actionInterceptor" />
+			</interceptor-stack>  
+			<!-- 登录页面SQL注入修复 start -->
+			<interceptor-stack name="mylogin">
+			    <interceptor-ref name="defaultStack"></interceptor-ref>
+			    <interceptor-ref name="actionInterceptor" />
+			    <interceptor-ref name="paramFilter"/>
+			    <interceptor-ref name="login" />
+			</interceptor-stack>
+			<!-- 登录页面SQL注入修复 end -->    
+		</interceptors>
+		<default-interceptor-ref name="globalStack" />
+		<global-results>
+			<result name="index" type="ftl">/zhibo/index.html</result>
+            <result name="login" type="ftl">/zhibo/login.html</result>
+            <result name="register" type="ftl">/register.html</result>
+            <result name="notfound" type="ftl">/zhibo/404/404.html</result>
+            <result name="msg" type="ftl">/zhibo/404/404.html</result>
+            <result name="adminmsg" type="ftl">/admin/msg.html</result>
+            <result name="error" type="ftl" >/zhibo/404/404.html</result>
+            <result name="mobile_error" type="ftl" >/common/404.html</result>
+
+		</global-results>
+		
+		<!--  后台地址过滤 start --> 
+		<action name="notfound"> 
+		<result type="ftl">/zhibo/404/404.html</result>
+		</action> 
+		<!--  后台地址过滤 end -->
+		
+	</package>
+	 <package name="p2p-json" extends="p2p-default">
+        <result-types>
+            <result-type name="json" class="org.apache.struts2.json.JSONResult"/>
+        </result-types>
+        <interceptors>
+            <interceptor name="json" class="org.apache.struts2.json.JSONInterceptor"/>
+        </interceptors>
+    </package>
+</struts>

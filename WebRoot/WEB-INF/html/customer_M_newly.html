@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<#include "include/resource.html">
+<head>
+ 
+</head>
+<body>
+    <div class="main_content_box">
+        <div class="cm_main cm_main3" style="display:block;">
+            <div class="cm_main_top cm_main_top3">
+                <span>客户管理新增</span>
+            </div>
+            <div class="dwidth">
+                <form action="${webroot}/customer/saveCustomer.html" id="form">
+                    <table class="crm__newly_tb">
+                    <input type= "hidden" id = "id" name = "id" <#if cus??>value="${cus.id!''}"</#if>>
+                        <tr>
+                            <td>客户名称</td>
+                            <td> <input type="text" id="username" name="username" maxlength="30" required="true"  <#if cus??>value="${cus.username!''}"</#if>>
+                         <span style="color:red;padding-left:5px;">●</span> </td>
+                        </tr>
+                        <tr>
+                            <td>类型</td>
+                            <td>
+                            	<select name="usertype">
+	                                <option value="1" <#if cus??><#if cus.type=="1">selected="selected"</#if></#if>>个人</option>
+	                                <option value="2" <#if cus??><#if cus.type=="2">selected="selected"</#if></#if>>企业</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>电话</td>
+                            <td><input type="text" required="true" isPhone="true" name="phone" id="phone" <#if cus??>value="${cus.phone!''}"</#if>></td>
+                        </tr>
+                        <tr>
+                            <td>地址</td>
+                            <td>
+                            <textarea name="address" id="address" maxlength="150" value="" cols="100" rows="5" style="resize:none;margin-left:15px;"><#if cus??>${cus.address!''}</#if></textarea>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>
+	                            <span class="big_btn" id="save">保存</span>
+	                            <span class="big_btn" id="quxiao">取消</span>
+                            </td>
+                        </tr>
+                    </table>
+                </form>
+            </div>
+        </div>
+    </div>
+<script>
+
+		$.validator.setDefaults({
+		    submitHandler: function(form) {
+		      //alert("提交事件!");
+		      form.submit(); 
+		    }
+		
+		});
+		
+		$().ready(function() {
+			jQuery.validator.addMethod("isPhone", function(value,element) {
+				  var length = value.length;
+				  var mobile = /^1[3|4|5|7|8][0-9]{9}$/;
+				  var tel = /^\d{3,4}-?\d{7,9}$/;
+				  return this.optional(element) || (tel.test(value) || mobile.test(value));
+				}, "请正确填写您的联系电话");
+			
+			// 提交时验证表单
+			var validator = $("#form").validate({
+				
+				messages: {
+					phone: {
+						required:"必填",
+						isPhone:"请正确填写您的联系电话"
+					},
+					username: {
+						required: "必填",
+						minlength: "",
+						maxlength: "不能大于30个字符"
+					}
+					
+				}
+			});
+		});
+		
+</script>
+<style>
+	.error{
+		color:red;
+	}
+</style>
+	<script type="text/javascript">
+		$("#save").click(function(){
+				$("#form").submit();
+		}); 
+	</script>
+	<script type="text/javascript">
+		$("#quxiao").click(function(){
+			var f="${webroot}/customer/customer_M.html";
+		    window.location.href=f;
+		}); 
+	</script>
+
+    <script>
+        $(document).ready(function(){
+            $('.main_content_box').insertAfter($('.main_content_top'));
+        });
+
+        $('#a2').css("background","rgba(64,123,167,.9)");
+        var txt=$('#a2').html();
+        var bg=$('#a2 i').css('backgroundImage');
+        $('.main_content_top h3').html(txt);
+        $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+    </script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>律所人员管理-新增</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/law_base.css">
+    <link rel="stylesheet" href="css/law_firm_M.css">
+    <link rel="stylesheet" href="css/pagination.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.pagination.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/law_base.js"></script>
+</head>
+<body>
+     <#include "public_page.html">
+
+     <div class="main_content_box">
+                <h3 class="lv_title">人员管理</h3>
+                <div class="cm_main newly" style="display:block;">
+                    <div class="cm_main_top">新增</div>
+                    <div class="dwidth">
+                        <form action="" class="lv_newly">
+                            <table>
+                                <tr>
+                                    <td>名称</td>
+                                    <td><input type="text"></td>
+                                    <td>类型</td>
+                                    <td><select>
+                                        <option value="">超级管理员</option>
+                                        <option value="">普通管理员</option>
+                                        <option value="">一般管理员</option></select>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>登录密码</td>
+                                    <td><input type="password"></td>
+                                    <td>基本信息</td>
+                                    <td><input type="text"><span>搜索</span></td>
+                                </tr>
+                            </table>
+                            <p class="save_off">
+                                <span style="margin-right:20px;">保存</span><span style="margin-left:20px;" onclick="off()">取消</span>
+                            </p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $("#Pagination").pagination("15");
+    });
+</script>
+
+<script>
+    $('.lv_function_btn span').click(function(){
+        $('.lv_function_btn span:not(this)').css({backgroundColor:"#d2d2d2",color:"#00639e"});
+        $(this).css({backgroundColor:"#009bdb",color:"#fff"});
+    })
+</script>
+
+<script>
+      $(document).ready(function(){
+          $('.main_content_box').insertAfter($('.main_content_top'));
+
+          $('#a3').css("background","rgba(64,123,167,.9)");
+          var txt=$('#a3').html();
+          var bg=$('#a3 i').css('backgroundImage');
+          $('.main_content_top h3').html(txt);
+          $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+      });
+</script>
+
+</body>
+</html>

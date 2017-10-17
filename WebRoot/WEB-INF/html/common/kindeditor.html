@@ -1,0 +1,22 @@
+<link rel="styleSheet" href="/plugins/kindeditor/themes/default/default.css"/>
+<link rel="styleSheet" href="/plugins/kindeditor/plugins/code/prettify.css"/>
+<script type="text/javascript" charset="utf-8" src="/plugins/kindeditor/kindeditor-all-min.js"></script>
+<script type="text/javascript" charset="utf-8" src="/plugins/kindeditor/lang/zh-CN.js"></script>
+<script type="text/javascript" charset="utf-8" src="/plugins/kindeditor/plugins/code/prettify.js"></script>
+
+<script type="text/javascript">
+KindEditor.ready(function(K) {  
+    K.create('#editor_id', {  
+      uploadJson : '/plugins/kindeditor/jsp/upload_json.jsp',  
+      fileManagerJson : '/plugins/kindeditor/jsp/file_manager_json.jsp',  
+      allowFileManager : true ,
+      items:['source', '|', 'fullscreen', 'undo', 'redo', 'print', 'cut', 'copy', 'paste',
+             'plainpaste', 'wordpaste', '|', 'justifyleft', 'justifycenter', 'justifyright',
+             'justifyfull', 'insertorderedlist', 'insertunorderedlist', 'indent', 'outdent', 'subscript',
+             'superscript', '|', 'selectall', '-',
+             'title', 'fontname', 'fontsize', '|', 'textcolor', 'bgcolor', 'bold',
+             'italic', 'underline', 'strikethrough', 'removeformat', '|',
+             'image','advtable', 'hr', 'emoticons', 'link', 'unlink']
+    });  
+});
+</script>

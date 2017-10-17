@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>案件进度-进度处理</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="css/law_base.css">
+    <link rel="stylesheet" href="css/case_M.css">
+    <script src="js/jquery-1.11.3.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <!--[if lt IE 9]>
+    <script src="js/html5shiv.min.js"></script>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <script src="js/law_base.js"></script>
+</head>
+<body>
+    <#include "public_page.html">
+
+    <div class="main_content_box">
+                <div class="case case4" style="display:block;" >
+                    <h3 class="case_title">案件办理</h3>
+                    <div class="cm_main">
+                        <div class="cm_main_top">
+                            <span>进度处理</span>
+                        </div>
+                        <div class="dwidth">
+                            <form action="" class="case_form5">
+                                <table>
+                                    <tr>
+                                        <td style="width:80px;">案件编号</td>
+                                        <td>XS20170611345678</td>
+                                    </tr>
+                                    <tr>
+                                        <td>进度列表</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" style="border:1px solid #ccc;">
+                                            <p>进度列表 <input type="text" placeholder="客户约谈"> 类型<select name="" id="">
+                                                <option value="">客户约谈</option>
+                                                <option value="">见面约谈</option>
+                                                <option value="">详细约谈</option>
+                                            </select>截止时间 <input type="date"></p>
+                                            <p>计时步骤 <textarea name="" id="" cols="105" rows="8" style="vertical-align:top;margin-left:10px;resize:none;"></textarea></p>
+                                        </td>
+                                    </tr>
+                                </table>
+                                <p class="case_form5_btn"><span style="margin-right:20px;">提交</span><span style="margin-left:20px;">取消</span></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+    </div>
+
+    <script>
+        $(document).ready(function(){
+            $('.main_content_box').insertAfter($('.main_content_top'));
+
+            $('#a5').css("background","rgba(64,123,167,.9)");
+            var txt=$('#a5').html();
+            var bg=$('#a5 i').css('backgroundImage');
+            $('.main_content_top h3').html(txt);
+            $('.main_content_top h3').find('i').css({backgroundImage:bg,backgroundRepeat:"no-repeat"});
+        });
+    </script>
+
+</body>
+</html>

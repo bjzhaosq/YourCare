@@ -1,0 +1,220 @@
+.cm_main{
+    width:100%;
+    margin-top:10px;
+    background-color:#e9eef6;
+    padding-bottom:60px;
+    display:none;
+}
+
+.cm_main_top{
+    width:100%;
+    height:45px;
+    background-color:#cfe2ed;
+    color:#6a6a6a;
+    font-size:15px;
+    line-height:45px;
+    padding-left:25px;
+    box-sizing:border-box;
+}
+
+.lv_title{
+    font-size:15px;
+    color:#00639e;
+    font-weight:normal;
+}
+
+.dwidth{
+    width:1000px;
+    margin:0 auto;
+    margin-top:30px;
+}
+
+.lv_weihu{
+    width:100%;
+}
+
+.lv_weihu table{
+    width:100%;
+}
+
+.lv_weihu table td{
+    font-size:15px;
+    color:#6a6a6a;
+    padding:10px 0;
+}
+
+.lv_weihu table td:first-child,.lv_weihu table td:nth-child(3),.lv_weihu table td:nth-child(5){
+    width:40px;
+}
+
+.lv_weihu table td:nth-child(6){
+    width:220px;
+}
+
+.lv_weihu table td:nth-child(6) input{
+    width:200px !important;
+}
+
+.lv_weihu table input,.lv_weihu table select{
+    width:160px;
+    height:25px;
+}
+
+.lv_weihu table span{
+    display:inline-block;
+    width:48px;
+    height:22px;
+    border-radius:3px;
+    background-color:#a9c8d9;
+    color:#fff;
+    text-align:center;
+    margin-left:10px;
+    cursor:pointer;
+}
+
+.lv_function_btn{
+    text-align:center;
+    padding-top:30px;
+}
+
+.lv_function_btn span{
+    display:inline-block;
+    width:120px;
+    height:32px;
+    background-color:#d2d2d2;
+    line-height:32px;
+    color:#00639e;
+    font-size:16px;
+    cursor:pointer;
+}
+
+.lv_table_list{
+    width:100%;
+    margin-top:50px;
+    border-collapse:separate;
+    border-spacing:5px;
+}
+
+.lv_table_list td{
+    font-size:15px;
+    height:38px;
+    padding:0 5px;
+    color:#6a6a6a;
+    text-align:center;
+    background-color:#cfe2ed
+}
+
+.lv_table_list tr:first-child td{
+    background-color:#bdd9e9;
+}
+
+.lv_table_list tr td:first-child{
+    width:50px;
+}
+
+.lv_table_list tr td:nth-child(3){
+    width:120px;
+}
+
+.lv_table_list tr td:nth-child(4){
+    width:150px;
+}
+
+.lv_table_list tr td:last-child{
+    width:145px;
+}
+
+.lv_newly,.lv_newly table{
+    width:100%;
+}
+
+.lv_newly table td{
+    font-size:15px;
+    color:#6a6a6a;
+    padding-bottom:20px;
+}
+
+.lv_newly table td:first-child,.lv_newly table td:nth-child(3){
+    text-align:right;
+    padding-right:10px;
+}
+
+.lv_newly table input,.lv_newly table select{
+    width:160px;
+    height:25px;
+}
+
+.lv_newly table span{
+    display:inline-block;
+    width:48px;
+    height:22px;
+    border-radius:3px;
+    background-color:#a9c8d9;
+    color:#fff;
+    text-align:center;
+    margin-left:10px;
+    cursor:pointer;
+}
+
+.save_off,.infor_saveoff{
+    text-align:center;
+    margin-top:70px;
+}
+
+.save_off span,.infor_saveoff span{
+    display:inline-block;
+    width:116px;
+    height:30px;
+    background-color:#d2d2d2;
+    color:#00639e;
+    font-size:15px;
+    line-height:30px;
+    cursor:pointer;
+}
+
+.save_off span:hover,.infor_saveoff span:hover,.lv_function_btn span:hover{
+    background-color:#009bdb;
+    color:#fff;
+}
+
+.lv_infor,.lv_infor table{
+    width:100%;
+}
+
+.lv_infor table td{
+    padding-bottom:20px;
+}
+
+.lv_infor table td:first-child,.lv_infor table td:nth-child(3){
+    width:150px;
+    text-align:right;
+    font-size:15px;
+    color:#6a6a6a;
+}
+
+.lv_infor table td input,.lv_infor table td select{
+    width:150px;
+    height:25px;
+    margin-left:10px;
+}
+
+.lv_infor table td input[type='radio']{
+    width:50px;
+    height:15px;
+}
+
+.small_btn{
+    display:inline-block;
+    width:50px;
+    height:22px;
+    background-color:#a9c8d9;
+    color:#fff;
+    border-radius:3px;
+    text-align:center;
+    margin-left:10px;
+}
+
+.small_btn:hover{
+    color:#fff;
+    text-decoration:none;
+}

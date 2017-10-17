@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="zh">
+<#include "include/resource.html">
+	<style type='text/css'>
+		/* Example 1 custom styles */
+
+		#ex1Slider .slider-selection {
+			background: #BABABA;
+		}
+		</style>
+<body>
+<div class="htmleaf-container">
+	<#include "include/daohang.html">
+
+		<div class="demo">
+			<div class="container" >
+
+				<div class="row">
+					<div class="col-lg-12 col-xs-12">
+						<div class="text-center">
+							<input id="ex1" data-slider-id='ex1Slider' type="text" data-slider-min="0" data-slider-max="100" data-slider-step="1" data-slider-value="80"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	<div class="related" style="padding: 1.5em 0;">
+		<#if vdo??>
+			<embed id="video" width="${vdo.width!''}" height="${vdo.height!''}" allownetworking="all" allowscriptaccess="always" src="${vdo.content!''}" quality="high" bgcolor="#000" wmode="window" allowfullscreen="true" allowFullScreenInteractive="true" type="application/x-shockwave-flash">
+		</#if>
+	</div>
+</div>
+
+<script type="text/javascript">
+	var win = 80;
+	var width = $('#video').attr('width');
+    var height = $('#video').attr('height');
+    width = width / (win/100);
+    height = height / (win/100);
+    // With JQuery
+    $('#ex1').slider({
+        formatter: function(value) {
+            console.log(value);
+            fun_daxiao(value);
+            return '' + value + '%';
+        }
+    });
+
+    function fun_daxiao(value){
+        if(win != value){
+            var w =  width * (value/100);
+            var h =  height * (value/100);
+//            console.log("gai bianle " + w + ' height   '+ h);
+            $('#video').attr('width',w);
+            $('#video').attr('height',h);
+            win = value;
+		}
+	}
+
+
+</script>
+</body>
+</html>
