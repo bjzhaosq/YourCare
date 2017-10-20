@@ -3,16 +3,7 @@ package com.lawer.domain;
 import java.io.Serializable;
 import java.util.Date;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
+import javax.persistence.*;
 
 import com.lawer.context.Global;
 @Entity
@@ -61,6 +52,10 @@ public class User implements Serializable{
     private String remark;
 
     private Integer dtalk;
+
+    @OneToOne()
+    @JoinColumn(name="info_id")
+    private WechatPhone wechatPhone;
     
     @ManyToOne()
 	@JoinColumn(name="user_type_id")
@@ -201,6 +196,12 @@ public class User implements Serializable{
 	public void setJobNumber(String jobNumber) {
 		this.jobNumber = jobNumber;
 	}
-	
 
+    public WechatPhone getWechatPhone() {
+        return wechatPhone;
+    }
+
+    public void setWechatPhone(WechatPhone wechatPhone) {
+        this.wechatPhone = wechatPhone;
+    }
 }

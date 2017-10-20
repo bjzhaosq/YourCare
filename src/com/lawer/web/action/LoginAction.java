@@ -62,6 +62,7 @@ public class LoginAction extends BaseAction{
 			sendMsg("1", "用户不存在或密码错误！");
 		}else{
 			session.put(Constant.SESSION_USER, u);
+			request.getSession().setMaxInactiveInterval(-1);
 			request.getSession().setAttribute(Constant.SESSION_USER, u);
 			sendMsg("0","登陆成功");
 		}
